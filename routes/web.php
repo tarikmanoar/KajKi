@@ -15,9 +15,6 @@ Route::get('/', function () {return view('welcome');});
 | CRUD AND ALBUM ROUTE
 |--------------------------------------------------------------------------
 */
-
-
-
 //For auth
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
