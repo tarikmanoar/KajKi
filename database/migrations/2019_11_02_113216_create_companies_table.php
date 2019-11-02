@@ -15,6 +15,18 @@ class CreateCompaniesTable extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('cname');
+            $table->string('slug');
+            $table->string('address');
+            $table->string('phone')->unique();
+            $table->string('email')->unique();
+            $table->string('website');
+            $table->string('logo');
+            $table->string('cover_photo');
+            $table->string('slogan');
+            $table->string('description');
             $table->timestamps();
         });
     }
