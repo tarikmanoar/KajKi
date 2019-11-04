@@ -67,6 +67,19 @@ Thank you for considering contributing to the Laravel framework! The contributio
 
 If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
+<p align="center"><img src="https://www.dctacademy.com/wp-content/uploads/2016/12/install.jpeg" width="400"></p>
+
+## Install Locally
+<ol>
+    <li>Download Or Clone Project</li>
+    <li>Extract project in local server</li>
+    <li>Run command promote and rum <code><b> copy .env.example .env</b></code></li>
+    <li>Open <code><b>.env</b></code> change database name and username password</li>
+    <li>Generate key <code><b> php artisan key:generate</b></code></li>
+    <li>Migrate tables <code><b>php artisan migrate</b></code></li>
+    <li>Run your server <code><b>php artisan serve</b></code> </li>
+</ol>
+
 ## License
 
 The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
