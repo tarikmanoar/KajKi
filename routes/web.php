@@ -4,7 +4,19 @@
 | JOB PORTAL KAJKI.COM ROUTE
 |--------------------------------------------------------------------------
 */
-Route::get('/', function () {return view('welcome');});
+//Job Controller
+
+Route::get('/','KajKi\JobController@index')->name('index');
+Route::get('/jobs/{id}/{job}','KajKi\JobController@show')->name('jobs.show');
+
+//Company Controller
+
+Route::get('/companies/{id}/{company}','KajKi\CompanyController@index')->name('company.index');
+
+//Profile Controller
+Route::get('/user/profile','KajKi\ProfileController@index')->name('user.profile');
+Route::post('/user/profile','KajKi\ProfileController@store')->name('user.store');
+Route::post('/user/cover','KajKi\ProfileController@cover')->name('user.cover');
 
 
 

@@ -19,11 +19,11 @@ class CreateProfilesTable extends Migration
             $table->string('address');
             $table->string('gender');
             $table->string('dob');
-            $table->string('experience');
-            $table->string('bio');
-            $table->string('cover_latter');
-            $table->string('resume');
-            $table->string('avatar');
+            $table->string('experience')->nullable();
+            $table->string('bio')->nullable();
+            $table->string('cover_latter')->nullable();
+            $table->string('resume')->nullable();
+            $table->string('avatar')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

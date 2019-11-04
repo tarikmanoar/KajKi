@@ -2,15 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="416ee341-7c52-4323-b6a7-10457ddaee1a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/laravel-plugin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Kajki/CompanyController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Kajki/JobController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Kajki/ProfileController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeds/CrudSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/avatar/aaa.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/avatar/man.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/avatar/masroom.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/avatar/shield-letter-s-logo-260nw-633031571.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/files/Eel4a.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/auth/profile.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/company/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/jobs/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/tarik.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/tarik.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Company.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Company.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Job.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Job.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_02_113124_create_profiles_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_11_02_113124_create_profiles_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_02_113216_create_companies_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_11_02_113216_create_companies_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_02_113241_create_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_11_02_113241_create_categories_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_02_113413_create_jobs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_11_02_113413_create_jobs_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -143,7 +161,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.PHP" />
     <property name="settings.editor.splitter.proportion" value="0.19949496" />
   </component>
   <component name="RecentsManager">
@@ -181,7 +199,9 @@
       <updated>1572414517407</updated>
       <workItem from="1572414524244" duration="48777000" />
       <workItem from="1572587129514" duration="24488000" />
-      <workItem from="1572698329279" duration="3375000" />
+      <workItem from="1572698329279" duration="5891000" />
+      <workItem from="1572783910190" duration="2815000" />
+      <workItem from="1572856128276" duration="21608000" />
     </task>
     <servers />
   </component>
