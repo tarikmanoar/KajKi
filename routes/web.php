@@ -18,6 +18,9 @@ Route::get('/user/profile','KajKi\ProfileController@index')->name('user.profile'
 Route::post('/user/profile','KajKi\ProfileController@store')->name('user.store');
 Route::post('/user/cover','KajKi\ProfileController@cover')->name('user.cover');
 Route::post('/user/avatar','KajKi\ProfileController@avatar')->name('user.avatar');
+//Employee Registration
+Route::view('employer/register','auth.emp-reg');
+Route::post('employer/register','Auth\EmpController@store')->name('emp.register');
 
 
 

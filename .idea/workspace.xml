@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="416ee341-7c52-4323-b6a7-10457ddaee1a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_11_04_235954_add_phone_number_to_profiles_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/uploads/YJmvM.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/EmpController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/auth/emp-reg.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Kajki/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Kajki/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/profile.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Company.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Company.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -179,7 +180,7 @@
       <workItem from="1572587129514" duration="24488000" />
       <workItem from="1572698329279" duration="5891000" />
       <workItem from="1572783910190" duration="2815000" />
-      <workItem from="1572856128276" duration="23317000" />
+      <workItem from="1572856128276" duration="27091000" />
     </task>
     <servers />
   </component>
