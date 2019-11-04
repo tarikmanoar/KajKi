@@ -17,6 +17,7 @@ Route::get('/companies/{id}/{company}','KajKi\CompanyController@index')->name('c
 Route::get('/user/profile','KajKi\ProfileController@index')->name('user.profile');
 Route::post('/user/profile','KajKi\ProfileController@store')->name('user.store');
 Route::post('/user/cover','KajKi\ProfileController@cover')->name('user.cover');
+Route::post('/user/avatar','KajKi\ProfileController@avatar')->name('user.avatar');
 
 
 

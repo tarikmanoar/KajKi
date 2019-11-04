@@ -11,10 +11,10 @@
                     <img src="{{asset('avatar/man.jpg')}}" alt="Srorry" class="img-fluid">
                 @endif
                 <div class="card-body">
-                    <form action="{{route('user.cover')}}" enctype="multipart/form-data" method="POST">
+                    <form action="{{route('user.avatar')}}" enctype="multipart/form-data" method="POST">
                         @csrf
                         <label for="file" class="btn btn-info btn-sm">Change Image</label>
-                        <input id="file" type="file" class="form-control" name="resume" style="display: none"><br>
+                        <input id="file" type="file" class="form-control" name="avatar" style="display: none"><br>
                         &nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-success">Upload</button>
                     </form>
                 </div>
@@ -39,6 +39,11 @@
                                     {{session('message')}}
                                 </div>
                             @endif
+                            <div class="form-group">
+                                <label for="phone_number">Phone Number</label>
+                                <input class="form-control" type="number" id="phone_number" name="phone_number"
+                                value="{{auth()->user()->profile->phone_number}}">
+                            </div>
                             <div class="form-group">
                                 <label for="cover_letter">Cover Letter</label>
                                 <textarea name="cover_latter" id="cover_letter"
