@@ -9,6 +9,9 @@ Route::get('/', 'KajKi\JobController@index')->name('index');
 Route::get('/jobs/{id}/{job}', 'KajKi\JobController@show')->name('jobs.show');
 Route::get('/jobs/create', 'KajKi\JobController@create')->name('jobs.create');
 Route::post('/jobs/create', 'KajKi\JobController@store')->name('jobs.store');
+Route::get('/jobs/myJobs', 'KajKi\JobController@myJobs')->name('jobs.myJobs');
+Route::get('/{id}/edit', 'KajKi\JobController@edit')->name('jobs.edit');
+Route::put('/{id}/edit', 'KajKi\JobController@update')->name('jobs.update');
 
 //Company Controller
 Route::get('/companies/{id}/{company}', 'KajKi\CompanyController@index')->name('company.index');

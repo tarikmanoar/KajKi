@@ -17,9 +17,15 @@
                 <tbody>
                 @foreach($jobs as $job)
                     <tr>
-                        <td><img src="{{asset('avatar/man.jpg')}}" alt="NO" width="80px"></td>
+                        <td>
+                            @if(!empty($job->company->logo))
+                                <img src="{{asset('images/uploads/'.$job->company->logo)}}" alt="NO" width="80px">
+                            @else
+                                <img src="{{asset('avatar/man.jpg')}}" alt="NO" width="80px">
+                            @endif
+                        </td>
                         <td>Position: {{$job->position}} <br>
-                        <i class="fa fa-clock-o"></i>&nbsp; {{$job->job_type}}
+                            <i class="fa fa-clock-o"></i>&nbsp; {{$job->job_type}}
                         </td>
                         <td width="300px"><i class="fa fa-map-marker"></i>&nbsp; Address: {{$job->address}}</td>
                         <td><i class="fa fa-globe"></i>&nbsp; Post:{{$job->created_at->diffForHumans()}}</td>
@@ -35,7 +41,7 @@
     </div>
 @endsection
 <style>
-    .fa{
-        color:#2ad;
+    .fa {
+        color: #2ad;
     }
 </style>

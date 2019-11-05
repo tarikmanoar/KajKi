@@ -24,10 +24,54 @@ class JobController extends Controller
     {
         if (auth()->user()->role == 'employer') {
             return view('jobs.create');
-        }else{
+        } else {
             return redirect()->to('/');
         }
 
+    }
+
+    public function myJobs()
+    {
+        $jobs = Job::where('user_id', auth()->user()->id)->get();
+        return view('jobs.myjobs', compact('jobs'));
+    }
+
+    public function edit($id)
+    {
+        $job = Job::findOrFail($id);
+        return view('jobs.edit', compact('job'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'category_id' => 'required|',
+            'title'       => 'required|min:36',
+            'description' => 'required|min:80',
+            'position'    => 'required|max:128',
+            'roles'       => 'required|',
+            'address'     => 'required|',
+            'job_type'    => 'required|',
+            'status'      => 'required|numeric',
+            'last_date'   => 'required|',
+        ]);
+        $data = [
+            'category_id' => $request->get('category_id'),
+            'title'       => $title = $request->get('title'),
+            'slug'        => str_slug($title),
+            'description' => $request->get('description'),
+            'position'    => $request->get('position'),
+            'roles'       => $request->get('roles'),
+            'address'     => $request->get('address'),
+            'job_type'    => $request->get('job_type'),
+            'status'      => $request->get('status'),
+            'last_date'   => $request->get('last_date'),
+            'updated_at'   => date("Y-m-d h:i:s")
+        ];
+        $jobUpdate = Job::findOrFail($id);
+        $jobUpdate->update($data);
+        $this->setSuccessMsg("Job Posted Successfully!");
+        return redirect()->route('jobs.myJobs');
     }
 
     public function store(Request $request)
