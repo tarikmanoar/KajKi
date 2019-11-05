@@ -96,7 +96,19 @@
                         </form>
                     </div>
                 </div>
-            @else
+        </div>
+        @else
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    @if(!empty(auth()->user()->company->cover_photo))
+                        <img src="{{asset('images/uploads/'.auth()->user()->company->cover_photo)}}" alt="Sorry"
+                             class="img-fluid" style="height: 376px;width: 100%;">
+                    @else
+                        <img src="{{asset('avatar/aaa.jpeg')}}" alt="Sorry" class="img-fluid" style="height: 376px;
+                        width: 100%;">
+                    @endif
+                </div>
+
                 {{--*******************
                 || Company Profile
                 ||******************--}}
@@ -119,7 +131,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="card">
-                        <div class="card-header">Update Your Profile</div>
+                        <div class="card-header">Update Your Company Profile</div>
                         <div class="card-body">
                             <form action="{{route('company.update')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
@@ -192,7 +204,27 @@
                         </div>
                     </div>
                 </div>
-            @endif
-        </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">Company Information</div>
+                        <div class="card-body">
+                            <p><strong>Company Name</strong>: {{auth()->user()->company->cname}}</p>
+                            <p><strong>Company Phone</strong>: {{auth()->user()->company->phone}}</p>
+                            <p><strong>Company Email</strong>: {{auth()->user()->company->email}}</p>
+                            <strong>Company Website</strong>:<a href="{{auth()->user()->company->website}}">
+                                {{auth()->user()->company->website}}
+                            </a>
+                            <p><strong>Company Address</strong>: {{auth()->user()->company->address}}</p>
+                            <p><strong>Company Slogan</strong>: {{auth()->user()->company->slogan}}</p>
+                            <p><strong>Company Description</strong>: {{auth()->user()->company->description}}</p>
+                            <p><strong>Company Created At</strong>: {{date('F d Y',strtotime(auth()->user()
+                            ->company->created_at))}}</p>
+                            <a href="{{route('company.index',[auth()->user()->company->id,auth()->user()->company->slug])}}"
+                               class="btn btn-dark btn-sm">View Company Page</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
     </div>
 @endsection

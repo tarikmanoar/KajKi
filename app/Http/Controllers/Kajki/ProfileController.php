@@ -6,6 +6,7 @@ use App\Models\Profile;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 
 class ProfileController extends Controller
 {
@@ -57,7 +58,8 @@ class ProfileController extends Controller
         $user_id   = auth()->user()->id;
         $file_name = 'Profile_' . Str::random(5) . '.' . $request->file('avatar')->getClientOriginalExtension();
         if ($request->file('avatar')->isValid()) {
-            $request->file('avatar')->storeAs('uploads', $file_name);
+//            $request->file('avatar')->storeAs('uploads', $file_name);
+            Image::make($request->file('avatar'))->resize(300, 300)->save('images/uploads/' . $file_name);
             Profile::where('user_id', $user_id)->update(['avatar' => $file_name]);
         }
         $this->setSuccessMsg("Profile Update Successfully!");

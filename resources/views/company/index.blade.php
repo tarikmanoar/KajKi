@@ -5,13 +5,24 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="company-profile">
-                    <img src="{{asset('avatar/aaa.jpeg')}}" alt="SORRY" class="img-fluid" width="100%">
-                    <div class="company-desc">
-                        <img src="{{asset('avatar/masroom.jpg')}}" alt="SORRY" width="80px">
-                        <p>{{$company->description}}</p>
+                    @if(!empty(auth()->user()->company->cover_photo))
+                        <img src="{{asset('images/uploads/'.auth()->user()->company->cover_photo)}}" alt="Sorry"
+                             class="img-fluid" style="height: 376px;width: 100%;">
+                    @else
+                        <img src="{{asset('avatar/aaa.jpeg')}}" alt="Sorry" class="img-fluid" style="height: 376px;
+                        width: 100%;">
+                    @endif
+                    <div class="company-desc mt-4">
+                        @if(!empty(auth()->user()->company->logo))
+                            <img src="{{asset('images/uploads/'.auth()->user()->company->logo)
+                        }}" alt="Sorry" class="img-fluid" style="width: 150px">
+                        @else
+                            <img src="{{asset('avatar/man.jpg')}}" alt="Sorry" class="img-fluid" style="width: 150px">
+                        @endif
+                        <p class="mt-4">{{$company->description}}</p>
                         <h1>{{$company->cname}}</h1>
                         <p>Slogan- {{$company->slogan}};&nbsp; Address- {{$company->address}};&nbsp;
-                            Phone- {{$company->phone}};&nbsp; Website- {{$company->website}}</p>
+                            Phone- {{$company->phone}};&nbsp; Website- <a href="{{$company->website}}">{{$company->website}}</a></p>
                     </div>
                 </div>
                 <h1>Recent Jobs</h1>
