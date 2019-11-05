@@ -5,12 +5,12 @@
 |--------------------------------------------------------------------------
 */
 //Job Controller
-
 Route::get('/', 'KajKi\JobController@index')->name('index');
 Route::get('/jobs/{id}/{job}', 'KajKi\JobController@show')->name('jobs.show');
+Route::get('/jobs/create', 'KajKi\JobController@create')->name('jobs.create');
+Route::post('/jobs/create', 'KajKi\JobController@store')->name('jobs.store');
 
 //Company Controller
-
 Route::get('/companies/{id}/{company}', 'KajKi\CompanyController@index')->name('company.index');
 
 //Profile Controller
@@ -18,6 +18,7 @@ Route::get('/user/profile', 'KajKi\ProfileController@index')->name('user.profile
 Route::post('/user/profile', 'KajKi\ProfileController@store')->name('user.store');
 Route::post('/user/cover', 'KajKi\ProfileController@cover')->name('user.cover');
 Route::post('/user/avatar', 'KajKi\ProfileController@avatar')->name('user.avatar');
+
 //Employee Registration
 Route::view('employer/register', 'auth.emp-reg');
 Route::post('employer/register', 'Auth\EmpController@store')->name('emp.register');

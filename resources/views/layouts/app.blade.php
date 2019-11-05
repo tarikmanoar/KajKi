@@ -58,6 +58,11 @@
                             </li>
                         @endif
                     @else
+                        @if(Auth::user()->role=='employer')
+                            <li class="nav-item">
+                                <a href="{{route('jobs.create')}}" class="btn btn-dark btn-sm"style="margin-top: 6px;">Post Job</a>
+                            </li>
+                        @endif
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -70,17 +75,16 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{route('user.profile')}}">Profile</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
-
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                       style="display: none;">
                                     @csrf
                                 </form>
-                                <a class="dropdown-item" href="{{route('user.profile')}}">Profile</a>
                             </div>
                         </li>
                     @endguest
