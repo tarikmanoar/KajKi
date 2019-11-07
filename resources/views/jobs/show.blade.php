@@ -4,6 +4,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
+
+                @if(session()->has('message'))
+                    <div class="alert alert-{{session('type')}} text-center text-uppercase">
+                        {{session('message')}}
+                    </div>
+                @endif
                 <div class="card">
                     <div class="card-header">{{$job->title}}</div>
 
@@ -32,7 +38,12 @@
                     </div>
                     <br>
                     @if(Auth::check() && Auth::user()->role=='seeker')
-                    <a href="#" class="btn btn-success">Apply</a>
+                    @if(!$job->checkApplication())
+                        <form action="{{route('jobs.apply',$job->id)}}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <button type="submit" class="btn btn-success" style="width: 100%;"> Apply </button>
+                        </form>
+                    @endif
                     @endif
                 </div>
             </div>

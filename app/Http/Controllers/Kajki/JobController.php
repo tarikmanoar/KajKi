@@ -11,7 +11,7 @@ class JobController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('employer', ['except' => ['index', 'show']]);
+        $this->middleware('employer', ['except' => ['index', 'show', 'apply']]);
     }
 
     public function index()
@@ -108,5 +108,22 @@ class JobController extends Controller
         Job::create($data);
         $this->setSuccessMsg("Job Posted Successfully!");
         return redirect()->back();
+    }
+
+//================
+//Apply Job Controller
+//================
+    public function apply(Request $request, $id)
+    {
+        $job_id = Job::find($id);
+        $job_id->users()->attach(auth()->user()->id);
+        $this->setSuccessMsg("Application Sent!");
+        return redirect()->back();
+    }
+
+    public function applicant()
+    {
+        $applicants = Job::has('users')->where('user_id',auth()->user()->id)->get();
+        return view('jobs.applicant',compact('applicants'));
     }
 }

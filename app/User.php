@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Models\Company;
+use App\Models\Job;
 use App\Models\Profile;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -48,4 +49,8 @@ class User extends Authenticatable
     {
        return $this->hasOne(Company::class);
     }
+//    public function jobs()
+//    {
+//       return $this->belongsToMany(Job::class)->withTimestamps();
+//    }
 }
