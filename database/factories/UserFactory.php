@@ -45,8 +45,8 @@ $factory->define(Profile::class, function (Faker $faker) {
         'experience'   => 'Good',
         'bio'          => $faker->sentence(3),
         'cover_latter' => $faker->sentence(3),
-        'resume'       => $faker->domainName,
-        'avatar'       => $faker->imageUrl(250, 250)
+        'resume'       => 'Eel4a.pdf',
+        'avatar'       => 'man.jpg'
     ];
 });
 $factory->define(Company::class, function (Faker $faker) {
@@ -58,8 +58,8 @@ $factory->define(Company::class, function (Faker $faker) {
         'phone'       => $faker->unique()->phoneNumber,
         'email'       => $faker->unique()->safeEmail,
         'website'     => $faker->domainName,
-        'logo'        => $faker->imageUrl('300', '300'),
-        'cover_photo' => $faker->imageUrl('1366', '768'),
+        'logo'        => 'logo.jpg',
+        'cover_photo' => 'company_cover.png',
         'slogan'      => 'Learn-earn and grow',
         'description' => $faker->paragraph(rand(2, 20))
     ];

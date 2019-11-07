@@ -15,6 +15,7 @@ class EmpController extends Controller
     public function store(Request $request)
     {
         $user = User::create([
+            'name'     => ' ',
             'email'    => $request->get('email'),
             'password' => bcrypt($request->get('password')),
             'role'     => $request->get('role')

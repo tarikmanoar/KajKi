@@ -149,11 +149,11 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="last_date" class="col-md-4 col-form-label text-md-right">
+                                <label for="datepicker" class="col-md-4 col-form-label text-md-right">
                                     {{ __('Dead Line')}}
                                 </label>
                                 <div class="col-md-6">
-                                    <input id="last_date" type="date" name="last_date"
+                                    <input id="datepicker" type="text" name="last_date"
                                            class="form-control @error('last_date') is-invalid @enderror"
                                            value="{{ old('last_date') }}"  autocomplete="last_date">
 
