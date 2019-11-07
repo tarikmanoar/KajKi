@@ -71,7 +71,7 @@ class JobController extends Controller
         ];
         $jobUpdate = Job::findOrFail($id);
         $jobUpdate->update($data);
-        $this->setSuccessMsg("Job Posted Successfully!");
+        $this->setSuccessMsg("Job Updated Successfully!");
         return redirect()->route('jobs.myJobs');
     }
 

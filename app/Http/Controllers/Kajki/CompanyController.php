@@ -8,8 +8,13 @@ use App\Http\Controllers\Controller;
 
 class CompanyController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('employer', ['except' => ['index', 'show']]);
+    }
+
     public function index($id, Company $company)
     {
-        return view('company.index',compact('company'));
+        return view('company.index', compact('company'));
     }
 }
