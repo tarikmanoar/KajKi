@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
-                    <div class="card-header"><h1>Recent Jobs</h1></div>
+                    <div class="card-header"><h1>Active Jobs</h1></div>
 
                     @if(session()->has('message'))
                         <div class="alert alert-{{session('type')}} text-uppercase text-center">
@@ -42,8 +42,11 @@
                                     <td><i class="fa fa-globe"></i>&nbsp; Post:{{$job->created_at->diffForHumans()}}
                                     </td>
                                     <td>
-                                        <a href="{{route('jobs.edit',$job->id)}}" class="btn btn-success
-                           "><i class="fa fa-edit"></i></a>
+                                        <a href="{{route('jobs.show',[$job->id,$job->slug])}}" class="btn
+                                        btn-info"><i
+                                                class="fa fa-eye"></i></a>
+                                        <a href="{{route('jobs.edit',$job->id)}}" class="btn btn-success"><i
+                                                class="fa fa-edit"></i></a>
                                     </td>
                                 </tr>
                             @endforeach

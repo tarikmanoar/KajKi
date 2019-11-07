@@ -63,11 +63,11 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="dob" class="col-md-4 col-form-label text-md-right">{{ __('Date of Birth')
+                                <label for="datepicker" class="col-md-4 col-form-label text-md-right">{{ __('Date of Birth')
                             }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="dob" type="date" class="form-control @error('dob') is-invalid @enderror"
+                                    <input type="text" id="datepicker" class="form-control @error('dob') is-invalid @enderror"
                                            name="dob" value="{{ old('dob') }}" required autocomplete="dob" autofocus>
 
                                     @error('dob')

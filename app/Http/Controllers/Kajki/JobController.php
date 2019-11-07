@@ -9,6 +9,11 @@ use App\Http\Controllers\Controller;
 
 class JobController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('employer', ['except' => ['index', 'show']]);
+    }
+
     public function index()
     {
         $jobs = Job::all()->take(10);
@@ -22,11 +27,7 @@ class JobController extends Controller
 
     public function create()
     {
-        if (auth()->user()->role == 'employer') {
-            return view('jobs.create');
-        } else {
-            return redirect()->to('/');
-        }
+        return view('jobs.create');
 
     }
 
@@ -55,7 +56,7 @@ class JobController extends Controller
             'status'      => 'required|numeric',
             'last_date'   => 'required|',
         ]);
-        $data = [
+        $data      = [
             'category_id' => $request->get('category_id'),
             'title'       => $title = $request->get('title'),
             'slug'        => str_slug($title),
@@ -66,7 +67,7 @@ class JobController extends Controller
             'job_type'    => $request->get('job_type'),
             'status'      => $request->get('status'),
             'last_date'   => $request->get('last_date'),
-            'updated_at'   => date("Y-m-d h:i:s")
+            'updated_at'  => date("Y-m-d h:i:s")
         ];
         $jobUpdate = Job::findOrFail($id);
         $jobUpdate->update($data);

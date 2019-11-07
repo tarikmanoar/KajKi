@@ -12,6 +12,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script defer src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -21,6 +23,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 <body>
 <div id="app">
@@ -60,7 +63,8 @@
                     @else
                         @if(Auth::user()->role=='employer')
                             <li class="nav-item">
-                                <a href="{{route('jobs.create')}}" class="btn btn-dark btn-sm"style="margin-top: 6px;">Post Job</a>
+                                <a href="{{route('jobs.create')}}" class="btn btn-dark btn-sm" style="margin-top: 6px;">Post
+                                    Job</a>
                             </li>
                         @endif
                         <li class="nav-item dropdown">
@@ -75,11 +79,15 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{route('user.profile')}}">Profile</a>
-                                <a class="dropdown-item" href="{{route('jobs.myJobs')}}">Jobs</a>
-                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                @if(Auth::user()->role=='employer')
+                                    <a class="dropdown-item" href="{{route('user.profile')}}">Company</a>
+                                    <a class="dropdown-item" href="{{route('jobs.myJobs')}}">Jobs</a>
+                                @else
+                                    <a class="dropdown-item" href="{{route('user.profile')}}">Profile</a>
+                                @endif
+                                <a class="dropdown-item text-danger" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                   document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -93,16 +101,23 @@
             </div>
         </div>
     </nav>
-
     <main class="py-4">
         @yield('content')
     </main>
 </div>
 <script type="text/javascript">
+    //Alert Dismiss Function
     setTimeout(function () {
         let alert = $(".alert");
         alert.remove();
     }, 5000);
+
+    //Date Picker Function
+    $( function() {
+        $( "#datepicker" ).datepicker();
+        $( "#datepicker" ).datepicker( "option", "showAnim", "slideDown" );
+        $( "#datepicker" ).datepicker( "option", "dateFormat", "yy-mm-dd");
+    } );
 </script>
 </body>
 </html>
