@@ -40,7 +40,8 @@ Route::post('/employer/cover_photo', 'Auth\EmpController@cover_photo')->name('co
 |--------------------------------------------------------------------------
 */
 //For auth
-Auth::routes();
+//Auth::routes();
+Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
 
 //Contact CRUD Route

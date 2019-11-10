@@ -10,7 +10,7 @@ class CompanyController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('employer', ['except' => ['index', 'show']]);
+        $this->middleware(['employer','verified'], ['except' => ['index', 'show']]);
     }
 
     public function index($id, Company $company)

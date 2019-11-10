@@ -11,7 +11,7 @@ class JobController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('employer', ['except' => ['index', 'show', 'apply', 'allJobs']]);
+        $this->middleware(['employer','verified'], ['except' => ['index', 'show', 'apply', 'allJobs']]);
     }
 
     public function index()

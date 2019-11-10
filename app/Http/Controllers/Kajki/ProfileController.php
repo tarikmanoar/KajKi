@@ -10,6 +10,10 @@ use Intervention\Image\Facades\Image;
 
 class ProfileController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('verified');
+    }
     public function index()
     {
         return view('auth.profile');
