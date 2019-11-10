@@ -26,14 +26,10 @@ class EmpController extends Controller
             'address'     => request('address'),
             'slug'        => str_slug(request('cname')),
             'email'       => request('email'),
-            'phone'       => '',
-            'website'     => '',
-            'logo'        => '',
-            'cover_photo' => '',
-            'slogan'      => '',
-            'description' => '',
 
         ]);
+        $user->sendEmailVerificationNotification();
+        $this->setSuccessMsg("Please Active Your Account!");
         return redirect()->to('login');
     }
 

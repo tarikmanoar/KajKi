@@ -20,13 +20,13 @@ class CreateCompaniesTable extends Migration
             $table->string('cname');
             $table->string('slug');
             $table->string('address');
-            $table->string('phone')->unique();
+            $table->string('phone')->unique()->nullable();
             $table->string('email')->unique();
-            $table->string('website');
-            $table->string('logo');
-            $table->string('cover_photo');
-            $table->string('slogan');
-            $table->text('description');
+            $table->string('website')->nullable();
+            $table->string('logo')->nullable();
+            $table->string('cover_photo')->nullable();
+            $table->string('slogan')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
