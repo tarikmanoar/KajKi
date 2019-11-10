@@ -11,13 +11,14 @@ class JobController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('employer', ['except' => ['index', 'show', 'apply']]);
+        $this->middleware('employer', ['except' => ['index', 'show', 'apply', 'allJobs']]);
     }
 
     public function index()
     {
-        $jobs = Job::all()->take(10);
-        return view('welcome', compact('jobs'));
+        $jobs      = Job::latest()->limit(10)->where('status', 1)->get();
+        $companies = Company::get()->random(8);
+        return view('welcome', compact(['jobs', 'companies']));
     }
 
     public function show($id, Job $job)
@@ -110,6 +111,26 @@ class JobController extends Controller
         return redirect()->back();
     }
 
+    public function allJobs(Request $request)
+    {
+        $keyword     = $request->get('title');
+        $job_type    = $request->get('job_type');
+        $category_id = $request->get('category_id');
+        $address     = $request->get('address');
+        if ($keyword || $job_type || $category_id || $address) {
+            $allJobs = Job::where('status', 1)->where('title', 'LIKE', '%' . $keyword . '%')
+//                ->where('job_type', $job_type)
+//                ->where('category_id', $category_id)
+//                ->where('address','LIKE','%'.$address.'%' )
+                ->paginate(10);
+//dd($allJobs);
+            return view('jobs.allJobs', compact('allJobs'));
+        }else {
+            $allJobs = Job::where('status', 1)->paginate(10);
+            return view('jobs.allJobs', compact('allJobs'));
+        }
+    }
+
 //================
 //Apply Job Controller
 //================
@@ -123,7 +144,7 @@ class JobController extends Controller
 
     public function applicant()
     {
-        $applicants = Job::has('users')->where('user_id',auth()->user()->id)->get();
-        return view('jobs.applicant',compact('applicants'));
+        $applicants = Job::has('users')->where('user_id', auth()->user()->id)->get();
+        return view('jobs.applicant', compact('applicants'));
     }
 }

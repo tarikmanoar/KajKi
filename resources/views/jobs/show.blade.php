@@ -35,6 +35,8 @@
                         <p> <span class="font-weight-bold text-uppercase">Company:</span>  {{$job->category->name}} </p>
                         <p> <span class="font-weight-bold text-uppercase">Position:</span>  {{$job->position}}</p>
                         <p> <span class="font-weight-bold text-uppercase">Date:</span>  {{$job->created_at->diffForHumans()}}</p>
+                        <p> <span class="font-weight-bold text-uppercase">Last Date:</span>
+                            {{date('F d Y',strtotime($job->last_date))}}</p>
                     </div>
                     <br>
                     @if(Auth::check() && Auth::user()->role=='seeker')

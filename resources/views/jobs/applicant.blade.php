@@ -7,7 +7,9 @@
                 <div class="card">
                     @foreach($applicants as $applicant)
                         <div class="card-header">
-                            <h3><a href="{{route('jobs.show',[$applicant->id,$applicant->slug])}}">{{$applicant->title}}</a></h3>
+                            <h3>
+                                <a href="{{route('jobs.show',[$applicant->id,$applicant->slug])}}">{{$applicant->title}}</a>
+                            </h3>
                         </div>
                         <div class="card-body">
                             <table class="table table-bordered table-striped table-hover table-responsive">
@@ -33,7 +35,11 @@
                                         <td>{{$user->profile->bio}}</td>
                                         <td>{{$user->profile->exprience}}</td>
                                         <td>{{$user->profile->cover_latter}}</td>
-                                        <td><a href="{{asset('images/files/'.$user->profile->resume)}}">Resume</a></td>
+                                        <td>
+                                            @if(!empty($user->profile->resume))
+                                                <a href="{{asset('images/files/'.$user->profile->resume)}}">Resume</a>
+                                            @endif
+                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
