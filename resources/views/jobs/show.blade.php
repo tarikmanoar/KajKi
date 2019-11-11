@@ -41,8 +41,10 @@
                     <br>
                     @if(Auth::check() && Auth::user()->role=='seeker')
                     @if(!$job->checkApplication())
-                            <apply-component jobid={{$job->id}}></apply-component>
+                            <apply-component jobid={{$job->id}} ></apply-component>
                     @endif
+                        <br>
+                        <favourites-component jobid={{$job->id}} :favourite={{$job->checkSaved()?'true':'false'}}></favourites-component>
                     @endif
                 </div>
             </div>

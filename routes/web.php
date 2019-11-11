@@ -4,6 +4,9 @@
 | JOB PORTAL KAJKI.COM ROUTE
 |--------------------------------------------------------------------------
 */
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 //Job Controller
 Route::get('/', 'KajKi\JobController@index')->name('index');
 Route::get('/jobs/{id}/{job}', 'KajKi\JobController@show')->name('jobs.show');
@@ -17,6 +20,12 @@ Route::post('/applications/{id}', 'KajKi\JobController@apply')->name('jobs.apply
 Route::get('/jobs/applications', 'KajKi\JobController@applicant')->name('jobs.applications');
 
 Route::get('/jobs/allJobs', 'KajKi\JobController@allJobs')->name('jobs.allJobs');
+
+//Save & Unsaved Jobs Controller
+
+Route::post('/save/{id}', 'KajKi\FavouriteController@saveJob');
+Route::post('/unsaved/{id}', 'KajKi\FavouriteController@unsavedJob');
+
 
 //Company Controller
 Route::get('/companies/{id}/{company}', 'KajKi\CompanyController@index')->name('company.index');
