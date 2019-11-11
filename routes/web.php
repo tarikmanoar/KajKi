@@ -12,10 +12,11 @@ Route::post('/jobs/create', 'KajKi\JobController@store')->name('jobs.store');
 Route::get('/jobs/myJobs', 'KajKi\JobController@myJobs')->name('jobs.myJobs');
 Route::get('/{id}/edit', 'KajKi\JobController@edit')->name('jobs.edit');
 Route::put('/{id}/edit', 'KajKi\JobController@update')->name('jobs.update');
+
 Route::post('/applications/{id}', 'KajKi\JobController@apply')->name('jobs.apply');
 Route::get('/jobs/applications', 'KajKi\JobController@applicant')->name('jobs.applications');
+
 Route::get('/jobs/allJobs', 'KajKi\JobController@allJobs')->name('jobs.allJobs');
-//Route::post('/jobs/allJobs', 'KajKi\JobController@allJobs')->name('jobs.allJobs');
 
 //Company Controller
 Route::get('/companies/{id}/{company}', 'KajKi\CompanyController@index')->name('company.index');

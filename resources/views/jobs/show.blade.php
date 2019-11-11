@@ -41,10 +41,7 @@
                     <br>
                     @if(Auth::check() && Auth::user()->role=='seeker')
                     @if(!$job->checkApplication())
-                        <form action="{{route('jobs.apply',$job->id)}}" method="post" enctype="multipart/form-data">
-                            @csrf
-                            <button type="submit" class="btn btn-success" style="width: 100%;"> Apply </button>
-                        </form>
+                            <apply-component jobid={{$job->id}}></apply-component>
                     @endif
                     @endif
                 </div>
