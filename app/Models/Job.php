@@ -6,6 +6,9 @@ use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * @method static where(string $string, string $string1, string $string2)
+ */
 class Job extends Model
 {
     protected $guarded = [];

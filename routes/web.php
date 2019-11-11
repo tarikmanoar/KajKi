@@ -21,6 +21,9 @@ Route::get('/jobs/applications', 'KajKi\JobController@applicant')->name('jobs.ap
 
 Route::get('/jobs/allJobs', 'KajKi\JobController@allJobs')->name('jobs.allJobs');
 
+//search with veu js
+Route::get('/jobs/search', 'KajKi\JobController@search')->name('jobs.search');
+
 //Save & Unsaved Jobs Controller
 
 Route::post('/save/{id}', 'KajKi\FavouriteController@saveJob');

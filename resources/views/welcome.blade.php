@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-lg-12">
-
+<search-component></search-component>
                 <h1>Recent Jobs</h1>
                 <table class="table table-bordered table-striped">
                     <tbody>
