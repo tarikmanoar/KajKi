@@ -85,6 +85,7 @@
                                     <a class="dropdown-item" href="{{route('jobs.applications')}}">Applicants</a>
                                 @else
                                     <a class="dropdown-item" href="{{route('user.profile')}}">Profile</a>
+                                    <a class="dropdown-item" href="{{route('home')}}">Saved Job</a>
                                 @endif
                                 <a class="dropdown-item text-danger" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
