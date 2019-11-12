@@ -12,3 +12,5 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+!/resources/views/auth/old_emp-reg.blade.php
+!/resources/views/auth/old_register.blade.php

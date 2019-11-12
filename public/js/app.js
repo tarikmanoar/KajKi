@@ -1986,6 +1986,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -37506,10 +37507,13 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "\n                    " +
-                        _vm._s(result.title) +
-                        "\n                "
-                    )
+                      "\n                    " + _vm._s(result.title) + " "
+                    ),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("small", { staticClass: "badge badge-secondary" }, [
+                      _vm._v(_vm._s(result.position))
+                    ])
                   ]
                 )
               ])

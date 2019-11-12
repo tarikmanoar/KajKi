@@ -6,7 +6,8 @@
             <ul class="list-group">
                 <li class="list-group-item" v-for="result in results">
                     <a :href="'jobs/'+ result.id +'/'+ result.slug +'/'">
-                        {{result.title}}
+                        {{result.title}} <br>
+                        <small class="badge badge-secondary">{{result.position}}</small>
                     </a>
                 </li>
             </ul>

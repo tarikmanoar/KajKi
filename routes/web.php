@@ -6,7 +6,7 @@
 */
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
+Route::view('demo','layouts.main');
 //Job Controller
 Route::get('/', 'KajKi\JobController@index')->name('index');
 Route::get('/jobs/{id}/{job}', 'KajKi\JobController@show')->name('jobs.show');

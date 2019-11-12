@@ -11,7 +11,7 @@ class JobController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['employer','verified'], ['except' => ['index', 'show', 'apply', 'allJobs','search']]);
+        $this->middleware(['employer', 'verified'], ['except' => ['index', 'show', 'apply', 'allJobs', 'search']]);
     }
 
     public function index()
@@ -125,7 +125,7 @@ class JobController extends Controller
                 ->paginate(10);
 //dd($allJobs);
             return view('jobs.allJobs', compact('allJobs'));
-        }else {
+        } else {
             $allJobs = Job::where('status', 1)->paginate(10);
             return view('jobs.allJobs', compact('allJobs'));
         }
@@ -154,7 +154,7 @@ class JobController extends Controller
     public function search(Request $request)
     {
         $keyword = $request->get('keyword');
-        $jobs = Job::where('title','LIKE','%'.$keyword.'%')->orWhere('position','LIKE','%'.$keyword.'%')->limit(5)->get();
+        $jobs    = Job::where('title', 'LIKE', '%' . $keyword . '%')->orWhere('position', 'LIKE', '%' . $keyword . '%')->limit(5)->get();
         return response()->json($jobs);
     }
 }
