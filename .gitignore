@@ -14,3 +14,4 @@ npm-debug.log
 yarn-error.log
 !/resources/views/auth/old_emp-reg.blade.php
 !/resources/views/auth/old_register.blade.php
+!/resources/views/jobs/old_show.blade.php

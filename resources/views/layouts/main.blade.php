@@ -10,7 +10,24 @@
 </head>
 <body>
 @include('../partials.nav')
+<div style="height: 113px;"></div>
 @yield('content')
 @include('../partials.footer')
+
+
+<script type="text/javascript">
+    //Alert Dismiss Function
+    setTimeout(function () {
+        let alert = $(".alert");
+        alert.remove();
+    }, 5000);
+
+    //Date Picker Function
+    $( function() {
+        $( "#datepicker" ).datepicker();
+        $( "#datepicker" ).datepicker( "option", "showAnim", "slideDown" );
+        $( "#datepicker" ).datepicker( "option", "dateFormat", "yy-mm-dd");
+    } );
+</script>
 </body>
 </html>

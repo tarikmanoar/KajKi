@@ -1,25 +1,30 @@
 @extends('layouts.main')
 @section('content')
+
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-12">
+            <div class="col-md-12 col-lg">
+                @if(session()->has('message'))
+                    <div class="alert alert-{{session('type')}}">
+                        {{session('message')}}
+                    </div>
+                @endif
                 <div class="card">
-                    <div class="card-header bg-success text-white display-4 text-uppercase">{{ __('Job Seeker
-                    Registration')
-                    }}</div>
+                    <div class="card-header bg-success text-white display-4 text-uppercase">{{ __('Employer Registration') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('emp.register') }}">
                             @csrf
-                            <input type="hidden" value="seeker" name="role">
+                            <input type="hidden" value="employer" name="role">
 
                             <div class="form-group row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Company Name')
+                                }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text"
-                                           class="form-control @error('name') is-invalid @enderror" name="name"
-                                           value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                    <input id="cname" type="text"
+                                           class="form-control @error('cname') is-invalid @enderror" name="cname"
+                                           value="{{ old('cname') }}" required autocomplete="cname" autofocus>
 
                                     @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -63,23 +68,6 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="datepicker" class="col-md-4 col-form-label text-md-right">{{ __('Date of Birth')
-                            }}</label>
-
-                                <div class="col-md-6">
-                                    <input type="text" id="datepicker"
-                                           class="form-control @error('dob') is-invalid @enderror"
-                                           name="dob" value="{{ old('dob') }}" required autocomplete="dob" autofocus>
-
-                                    @error('dob')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-
 
                             <div class="form-group row">
                                 <label for="password"
@@ -105,23 +93,6 @@
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
                                            name="password_confirmation" required autocomplete="new-password">
-                                </div>
-                            </div>
-
-
-                            <div class="form-group row">
-                                <label for="gender"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
-
-                                <div class="col-md-6">
-                                    <input type="radio" name="gender" required> Male
-                                    <input type="radio" name="gender"> Female
-
-                                    @error('gender')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
                                 </div>
                             </div>
 

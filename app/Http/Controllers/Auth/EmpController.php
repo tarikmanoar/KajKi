@@ -30,7 +30,7 @@ class EmpController extends Controller
         ]);
         $user->sendEmailVerificationNotification();
         $this->setSuccessMsg("Please Active Your Account!");
-        return redirect()->to('login');
+        return redirect()->back();
     }
 
     public function update(Request $request)
