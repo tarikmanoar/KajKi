@@ -52,7 +52,7 @@
                                 <div class="col-md col-lg">
                                     <input id="position" type="text" name="position"
                                            class="form-control @error('position') is-invalid @enderror"
-                                           value="{{ old('position') }}"  autocomplete="position">
+                                           value="{{ old('position') }}" autocomplete="position">
                                     @error('position')
                                     <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -67,7 +67,7 @@
                                 <div class="col-md col-lg">
                                     <input id="roles" type="text" name="roles"
                                            class="form-control @error('roles') is-invalid @enderror"
-                                           value="{{ old('roles') }}"  autocomplete="roles">
+                                           value="{{ old('roles') }}" autocomplete="roles">
 
                                     @error('roles')
                                     <span class="invalid-feedback" role="alert">
@@ -96,18 +96,20 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="address" class="col-md-2 col-form-label text-md-right">
+                                <label for="autocomplete" class="col-md-2 col-form-label text-md-right">
                                     {{ __('Address')}}
                                 </label>
                                 <div class="col-md col-lg">
-                                    <input id="address" type="text" name="address"
-                                           class="form-control @error('address') is-invalid @enderror"
-                                           value="{{ old('address') }}"  autocomplete="address">
+                                    <input type="text" class="form-control form-control-block search-input px-4
+                                            @error('address') is-invalid @enderror"
+                                           id="autocomplete" placeholder="city, province or region"
+                                           onFocus="geolocate()" name="address" value="{{ old('address') }}"
+                                           autocomplete="address">
 
                                     @error('address')
                                     <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                     @enderror
                                 </div>
                             </div>
@@ -119,7 +121,7 @@
                                 <div class="col-md col-lg">
                                     <input id="number_of_vacancy" type="number" name="number_of_vacancy"
                                            class="form-control @error('number_of_vacancy') is-invalid @enderror"
-                                           value="{{ old('number_of_vacancy') }}"  autocomplete="address">
+                                           value="{{ old('number_of_vacancy') }}" autocomplete="address">
 
                                     @error('number_of_vacancy')
                                     <span class="invalid-feedback" role="alert">
@@ -135,7 +137,7 @@
                                 <div class="col-md col-lg">
                                     <input id="experience" type="number" name="experience"
                                            class="form-control @error('experience') is-invalid @enderror"
-                                           value="{{ old('experience') }}"  autocomplete="address">
+                                           value="{{ old('experience') }}" autocomplete="address">
 
                                     @error('experience')
                                     <span class="invalid-feedback" role="alert">
@@ -210,7 +212,8 @@
                                     {{ __('Job Status')}}
                                 </label>
                                 <div class="col-md col-lg">
-                                    <select name="status" id="status" class="form-control @error('status') is-invalid @enderror">
+                                    <select name="status" id="status"
+                                            class="form-control @error('status') is-invalid @enderror">
                                         <option value="1">Live</option>
                                         <option value="0">Draft</option>
                                     </select>
@@ -229,7 +232,7 @@
                                 <div class="col-md col-lg">
                                     <input id="datepicker" type="text" name="last_date"
                                            class="form-control @error('last_date') is-invalid @enderror"
-                                           value="{{ old('last_date') }}"  autocomplete="last_date">
+                                           value="{{ old('last_date') }}" autocomplete="last_date">
 
                                     @error('last_date')
                                     <span class="invalid-feedback" role="alert">

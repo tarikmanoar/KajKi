@@ -22,11 +22,11 @@ class CreateJobsTable extends Migration
             $table->string('slug');
             $table->text('description');
             $table->string('position');
-            $table->string('roles');
+            $table->text('roles');
             $table->string('address');
             $table->string('job_type');
             $table->integer('status');
-            $table->date('last_date');
+            $table->string('last_date','11');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');

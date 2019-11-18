@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\KajKi;
 
+use App\Http\Controllers\Controller;
 use App\Models\Company;
 use App\Models\Job;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class JobController extends Controller
 {
@@ -30,6 +30,49 @@ class JobController extends Controller
     {
         return view('jobs.create');
 
+    }
+
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'category_id'       => 'required|',
+            'title'             => 'required|min:36',
+            'description'       => 'required|min:80',
+            'position'          => 'required|max:128',
+            'roles'             => 'required|',
+            'address'           => 'required|',
+            'job_type'          => 'required|',
+            'status'            => 'required|numeric',
+            'number_of_vacancy' => 'required|numeric',
+            'experience'        => 'required|numeric',
+            'last_date'         => 'required|',
+            'gender'            => 'required|',
+            'salary'            => 'required|',
+        ]);
+        $user_id    = auth()->user()->id;
+        $company    = Company::where('user_id', $user_id)->first();
+        $company_id = $company->id;
+        $data       = [
+            'user_id'           => $user_id,
+            'company_id'        => $company_id,
+            'category_id'       => $request->get('category_id'),
+            'title'             => $title = $request->get('title'),
+            'slug'              => str_slug($title),
+            'description'       => $request->get('description'),
+            'position'          => $request->get('position'),
+            'roles'             => $request->get('roles'),
+            'address'           => $request->get('address'),
+            'job_type'          => $request->get('job_type'),
+            'status'            => $request->get('status'),
+            'last_date'         => $request->get('last_date'),
+            'salary'            => $request->get('salary'),
+            'gender'            => $request->get('gender'),
+            'experience'        => $request->get('experience'),
+            'number_of_vacancy' => $request->get('number_of_vacancy'),
+        ];
+        Job::create($data);
+        $this->setSuccessMsg("Job Posted Successfully!");
+        return redirect()->back();
     }
 
     public function myJobs()
@@ -76,40 +119,6 @@ class JobController extends Controller
         return redirect()->route('jobs.myJobs');
     }
 
-    public function store(Request $request)
-    {
-        $this->validate($request, [
-            'category_id' => 'required|',
-            'title'       => 'required|min:36',
-            'description' => 'required|min:80',
-            'position'    => 'required|max:128',
-            'roles'       => 'required|',
-            'address'     => 'required|',
-            'job_type'    => 'required|',
-            'status'      => 'required|numeric',
-            'last_date'   => 'required|',
-        ]);
-        $user_id    = auth()->user()->id;
-        $company    = Company::where('user_id', $user_id)->first();
-        $company_id = $company->id;
-        $data       = [
-            'user_id'     => $user_id,
-            'company_id'  => $company_id,
-            'category_id' => $request->get('category_id'),
-            'title'       => $title = $request->get('title'),
-            'slug'        => str_slug($title),
-            'description' => $request->get('description'),
-            'position'    => $request->get('position'),
-            'roles'       => $request->get('roles'),
-            'address'     => $request->get('address'),
-            'job_type'    => $request->get('job_type'),
-            'status'      => $request->get('status'),
-            'last_date'   => $request->get('last_date')
-        ];
-        Job::create($data);
-        $this->setSuccessMsg("Job Posted Successfully!");
-        return redirect()->back();
-    }
 
     public function allJobs(Request $request)
     {
