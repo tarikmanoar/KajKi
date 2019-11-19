@@ -14,10 +14,10 @@ class AddColumnToJobs extends Migration
     public function up()
     {
         Schema::table('jobs', function (Blueprint $table) {
-            $table->integer('number_of_vacancy');
-            $table->integer('experience');
-            $table->string('gender');
-            $table->string('salary');
+            $table->integer('number_of_vacancy')->after('last_date');
+            $table->integer('experience')->after('last_date');
+            $table->string('gender')->after('last_date');
+            $table->string('salary')->after('last_date');
         });
     }
 

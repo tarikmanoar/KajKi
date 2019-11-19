@@ -27,15 +27,6 @@
                 </div>
                 <h1>Recent Jobs</h1>
                 <table class="table table-bordered table-striped">
-                    <thead>
-                    <tr>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                    </thead>
                     <tbody>
                     @foreach($company->jobs as $job)
                         <tr>

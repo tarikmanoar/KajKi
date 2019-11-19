@@ -1,11 +1,11 @@
 <?php
 
-use Illuminate\Database\Seeder;
-use App\User;
-use App\Models\Company;
 use App\Models\Category;
+use App\Models\Company;
 use App\Models\Job;
 use App\Models\Profile;
+use App\User;
+use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -23,15 +23,17 @@ class DatabaseSeeder extends Seeder
         $this->call(CrudSeeder::class);
 
         $categories = [
-            'Technology',
-            'Engineering',
-            'Government',
-            'Medical',
-            'Construction',
-            'Software',
+            'Accounting / Finanace'       => 'flaticon-calculator',
+            'Automotive Jobs'             => 'flaticon-wrench',
+            'Construction / Facilities'   => 'flaticon-worker',
+            'flaticon-telecommunications' => 'Telecommunications',
+            'flaticon-stethoscope'        => 'Healthcare',
+            'flaticon-computer-graphic'   => 'Design, Art & Multimedia',
+            'Transportation & Logistics'  => 'flaticon-trolley',
+            'Restaurant / Food Service'   => 'flaticon-restaurant'
         ];
-        foreach ($categories as $cat) {
-            Category::create(['name' => $cat, 'slug' => str_slug($cat)]);
+        foreach ($categories as $cat => $icon) {
+            Category::create(['name' => $cat, 'slug' => str_slug($cat), 'icon' => $icon]);
         }
         factory(Job::class, 20)->create();
     }

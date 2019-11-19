@@ -54,7 +54,7 @@
                                         @elseif($job->job_type === 'Part Time')
                                             <span class="text-warning p-2 rounded border border-warning">Part Time</span>
                                         @else
-                                            <span class="text-success p-2 rounded border border-success">Part Time</span>
+                                            <span class="text-success p-2 rounded border border-success">Casual</span>
 
                                         @endif
                                     </div>

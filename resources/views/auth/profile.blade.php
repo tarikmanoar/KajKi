@@ -104,7 +104,7 @@
                         <img src="{{asset('images/uploads/'.auth()->user()->company->cover_photo)}}" alt="Sorry"
                              class="img-fluid" style="height: 376px;width: 100%;">
                     @else
-                        <img src="{{asset('avatar/aaa.jpeg')}}" alt="Sorry" class="img-fluid" style="height: 376px;
+                        <img src="{{asset('images/uploads/cv1.jpg')}}" alt="Sorry" class="img-fluid" style="height: 376px;
                         width: 100%;">
                     @endif
                 </div>

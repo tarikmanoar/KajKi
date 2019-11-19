@@ -68,6 +68,12 @@
                             }}">{{$job->company->cname}} </a>
                         </p>
                         <p><span class="font-weight-bold text-uppercase">Address:</span> {{$job->address}}</p>
+                        <p><span class="font-weight-bold text-uppercase">Gender</span> : {{$job->gender}}</p>
+                        <p><span class="font-weight-bold text-uppercase">Salary</span> : {{$job->salary}}</p>
+                        <p><span class="font-weight-bold text-uppercase">Experience</span> :
+                            {{$job->experience}}</p>
+                        <p><span class="font-weight-bold text-uppercase">Vacancy</span> :
+                            {{$job->number_of_vacancy}}</p>
                         <p><span class="font-weight-bold text-uppercase">Employment</span> Type: {{$job->job_type}}</p>
                         <p><span class="font-weight-bold text-uppercase">Category:</span> {{$job->category->name}} </p>
                         <p><span class="font-weight-bold text-uppercase">Position:</span> {{$job->position}}</p>
