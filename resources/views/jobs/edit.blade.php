@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header"><h3>Update Job</h3></div>
+                    <div class="card-header bg-warning text-info"><h3>Update Job</h3></div>
                     <div class="card-body">
                         <form action="{{route('jobs.update',$job->id )}}" method="POST" enctype="multipart/form-data">
                             @csrf
@@ -98,15 +98,97 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="address" class="col-md-4 col-form-label text-md-right">
+                                <label for="autocomplete" class="col-md-4 col-form-label text-md-right">
                                     {{ __('Address')}}
                                 </label>
-                                <div class="col-md-6">
-                                    <input id="address" type="text" name="address"
-                                           class="form-control @error('address') is-invalid @enderror"
-                                           value="{{ $job->address }}" autocomplete="address">
+                                <div class="col-md-6 col-lg-6">
+                                    <input type="text" class="form-control form-control-block search-input px-4
+                                            @error('address') is-invalid @enderror"
+                                           id="autocomplete" placeholder="city, province or region"
+                                           onFocus="geolocate()" name="address" value="{{$job->address}}"
+                                           autocomplete="address">
 
                                     @error('address')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="number_of_vacancy" class="col-md-4 col-form-label text-md-right">
+                                    {{ __('Vacancy')}}
+                                </label>
+                                <div class="col-md-6">
+                                    <input id="address" type="number" name="number_of_vacancy"
+                                           class="form-control @error('number_of_vacancy') is-invalid @enderror"
+                                           value="{{ $job->number_of_vacancy }}" autocomplete="number_of_vacancy">
+
+                                    @error('number_of_vacancy')
+                                    <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="experience" class="col-md-4 col-form-label text-md-right">
+                                    {{ __('Experience')}}
+                                </label>
+                                <div class="col-md-6">
+                                    <input id="address" type="number" name="experience"
+                                           class="form-control @error('experience') is-invalid @enderror"
+                                           value="{{ $job->experience }}" autocomplete="experience">
+
+                                    @error('experience')
+                                    <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="gender" class="col-md-4 col-form-label text-md-right">
+                                    {{ __('Gender')}}
+                                </label>
+                                <div class="col-md-6">
+                                    <select name="gender" id="gender"
+                                            class="form-control @error('gender') is-invalid @enderror">
+                                        <option value="Male" {{$job->gender ==='Male'?'selected':''}}>
+                                            Male
+                                        </option>
+                                        <option value="Female" {{$job->gender ==='Female'?'selected':''}}>
+                                            Female
+                                        </option>
+                                        <option value="Any" {{$job->gender ==='Any'?'selected':''}}>
+                                            Any
+                                        </option>
+                                    </select>
+
+                                    @error('gender')
+                                    <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="salary" class="col-md-4 col-form-label text-md-right">
+                                    {{ __('Salary')}}
+                                </label>
+                                <div class="col-md-6">
+                                    <select name="salary" id="salary"
+                                            class="form-control @error('salary') is-invalid @enderror">
+                                        <option value="Negotiable"{{$job->salary ==='Negotiable' ? 'selected' : ''}}>Negotiable</option>
+                                        <option value="2000-5000"{{$job->salary ==='2000-5000' ? 'selected' : ''}}>2000-5000</option>
+                                        <option value="5000-1000"{{$job->salary ==='5000-1000' ? 'selected' : ''}}>5000-1000</option>
+                                        <option value="10000-15000"{{$job->salary ==='10000-15000' ? 'selected' : ''}}>10000-15000</option>
+                                        <option value="15000-25000"{{$job->salary ==='15000-25000' ? 'selected' : ''}}>15000-25000</option>
+                                        <option value="25000-50000"{{$job->salary ==='25000-50000' ? 'selected' : ''}}>25000-50000</option>
+                                        <option value="50000-100000"{{$job->salary ==='50000-100000' ? 'selected' : ''}}>50000-100000</option>
+                                    </select>
+
+                                    @error('salary')
                                     <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -177,6 +259,7 @@
                                     <button type="submit" class="btn btn-primary">
                                         {{ __('Update Job') }}
                                     </button>
+                                    <a href="{{route('jobs.myJobs')}}" class="btn btn-info ">Back</a>
                                 </div>
                             </div>
                         </form>

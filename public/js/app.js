@@ -1864,7 +1864,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       e.preventDefault();
-      axios.post('/applications/' + this.jobid, {}).then(function (response) {
+      axios.POST('/applications/' + this.jobid, {}).then(function (response) {
         _this.show = false;
       });
     }

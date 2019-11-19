@@ -83,7 +83,14 @@
 
 <script src="{{asset('external/js/main.js')}}"></script>
 
-
+<script>
+    //Date Picker Function
+    $( function() {
+        $( "#datepicker" ).datepicker();
+        $( "#datepicker" ).datepicker( "option", "showAnim", "slideDown" );
+        $( "#datepicker" ).datepicker( "option", "dateFormat", "yy-mm-dd");
+    } );
+</script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         var mediaElements = document.querySelectorAll('video, audio'), total = mediaElements.length;

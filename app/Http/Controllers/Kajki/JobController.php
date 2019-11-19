@@ -36,7 +36,7 @@ class JobController extends Controller
     {
         $this->validate($request, [
             'category_id'       => 'required|',
-            'title'             => 'required|min:36',
+            'title'             => 'required|',
             'description'       => 'required|min:80',
             'position'          => 'required|max:128',
             'roles'             => 'required|',

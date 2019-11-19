@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
-                    <div class="card-header"><h1>Active Jobs</h1></div>
+                    <div class="card-header bg-warning text-dark"><h1>Active Jobs</h1></div>
 
                     @if(session()->has('message'))
                         <div class="alert alert-{{session('type')}} text-uppercase text-center">
@@ -14,15 +14,6 @@
                     @endif
                     <div class="card-body">
                         <table class="table table-bordered table-striped">
-                            <thead>
-                            <tr>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                            </thead>
                             <tbody>
                             @foreach($jobs as $job)
                                 <tr>
@@ -42,11 +33,8 @@
                                     <td><i class="fa fa-globe"></i>&nbsp; Post:{{$job->created_at->diffForHumans()}}
                                     </td>
                                     <td>
-                                        <a href="{{route('jobs.show',[$job->id,$job->slug])}}" class="btn
-                                        btn-info"><i
-                                                class="fa fa-eye"></i></a>
-                                        <a href="{{route('jobs.edit',$job->id)}}" class="btn btn-success"><i
-                                                class="fa fa-edit"></i></a>
+                                        <a href="{{route('jobs.show',[$job->id,$job->slug])}}" class="btn btn-info"><i class="icon-eye"></i></a>
+                                        <a href="{{route('jobs.edit',$job->id)}}" class="btn btn-success float-left"><i  class="icon-edit"></i></a>
                                     </td>
                                 </tr>
                             @endforeach

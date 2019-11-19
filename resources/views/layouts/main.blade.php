@@ -22,12 +22,7 @@
         alert.remove();
     }, 5000);
 
-    //Date Picker Function
-    $( function() {
-        $( "#datepicker" ).datepicker();
-        $( "#datepicker" ).datepicker( "option", "showAnim", "slideDown" );
-        $( "#datepicker" ).datepicker( "option", "dateFormat", "yy-mm-dd");
-    } );
+
 </script>
 </body>
 </html>

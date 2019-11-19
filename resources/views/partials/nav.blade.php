@@ -38,9 +38,8 @@
                                     @else
                                         @if(Auth::user()->role=='employer')
                                             <li class="nav-item">
-                                                <a href="{{route('jobs.create')}}" class="btn btn-info px-4 py-2"
-                                                   style="margin-top: 6px;">Post
-                                                    Job</a>
+                                                <a href="{{route('jobs.create')}}" class="btn btn-warning px-4 py-2"
+                                                   style="margin-top: 6px;">Post Job</a>
                                             </li>
                                         @endif
 

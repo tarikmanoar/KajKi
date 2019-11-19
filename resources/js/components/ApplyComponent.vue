@@ -23,7 +23,7 @@
         methods: {
             formSubmit(e) {
                 e.preventDefault();
-                axios.post('/applications/' + this.jobid, {
+                axios.POST('/applications/' + this.jobid, {
 
                 }).then((response) => {
                     this.show = false
