@@ -3,21 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="416ee341-7c52-4323-b6a7-10457ddaee1a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Kajki/JobController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Kajki/JobController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_02_113241_create_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_11_02_113241_create_categories_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_04_235954_add_phone_number_to_profiles_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_11_04_235954_add_phone_number_to_profiles_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_13_000520_add_column_to_jobs.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_11_13_000520_add_column_to_jobs.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/uploads/Company_Logo_uRzK4jtjkp.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/uploads/Company_coverXAVd9BCGWW.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/uploads/Company_cover_LNo56Unb27.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/uploads/YJmvM.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/uploads/company_cover.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/profile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/company/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/company/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/jobs/allJobs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/jobs/allJobs.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/jobs/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/jobs/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/blog.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -210,7 +198,7 @@
       <workItem from="1574066534374" duration="13587000" />
       <workItem from="1574135188151" duration="574000" />
       <workItem from="1574165220715" duration="102000" />
-      <workItem from="1574165380784" duration="7806000" />
+      <workItem from="1574165380784" duration="12945000" />
     </task>
     <servers />
   </component>

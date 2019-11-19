@@ -20,10 +20,10 @@
     {{--Recent Job Post--}}
     <div class="site-section bg-light">
         <div class="container">
-            <div class="row">
+            <div class="row" id="app">
                 <div class="col-md-12 mb-12 mb-md-0" data-aos="fade-up" data-aos-delay="100">
                     <h2 class="mb-5 h3">Recent Jobs</h2>
-                    <div class="rounded border jobs-wrap">
+                    <div class="rounded border jobs-wrap" >
 
                         @foreach($jobs as $job)
                             <a href="{{route('jobs.show',[$job->id,$job->slug])}}"
@@ -39,9 +39,9 @@
                                         <div class="d-block d-lg-flex">
                                             <div class="mr-3"><span class="icon-suitcase mr-1"></span>
                                                 {{$job->company->cname}}</div>
-                                            <div class="mr-3"><span class="icon-room mr-1"></span>{{$job->address}}
+                                            <div class="mr-3"><span class="icon-room mr-1"></span>{{Str::limit($job->address,20)}}
                                             </div>
-                                            <div class="mr-3"><span class="icon-money mr-1"></span> {{$job->salary}}
+                                            <div class="mr-3"><span class="icon-money mr-1"></span> ${{$job->salary}}
                                             </div>
                                             <div><span class="icon-transgender mr-1"></span> {{$job->gender}}</div>
                                         </div>
@@ -65,7 +65,8 @@
                     </div>
 
                     <div class="col-md-12 text-center mt-5">
-                        <a href="#" class="btn btn-primary rounded py-3 px-5"><span class="icon-plus-circle"></span>
+                        <a href="{{route('jobs.allJobs')}}" class="btn btn-primary rounded py-3 px-5"><span
+                                class="icon-plus-circle"></span>
                             Show More Jobs</a>
                     </div>
                 </div>

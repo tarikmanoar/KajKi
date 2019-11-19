@@ -6,7 +6,8 @@
             <div class="col-md-12 col-lg-12">
 
                 <h1>Recent Jobs ({{count($allJobs)}})</h1>
-                <form action="{{route('jobs.allJobs')}}" method="GET" accept-charset="utf-8"
+
+             {{--<form action="{{route('jobs.allJobs')}}" method="GET" accept-charset="utf-8"
                       enctype="multipart/form-data">
                     <div class="form-inline">
                         <div class="form-group">
@@ -58,31 +59,126 @@
                             <input type="submit" class="btn btn-success" class="form-control" value="Submit">
                         </div>
                     </div>
-                </form>
-                <table class="table table-bordered table-striped">
-                    <tbody>
-                    @foreach($allJobs as $job)
-                        <tr>
-                            <td>
-                                @if(!empty($job->company->logo))
-                                    <img src="{{asset('images/uploads/'.$job->company->logo)}}" alt="NO" width="80px">
-                                @else
-                                    <img src="{{asset('avatar/man.jpg')}}" alt="NO" width="80px">
-                                @endif
-                            </td>
-                            <td>Position: {{$job->position}} <br>
-                                <i class="fa fa-clock-o"></i>&nbsp; {{$job->job_type}}
-                            </td>
-                            <td width="300px"><i class="fa fa-map-marker"></i>&nbsp; Address: {{$job->address}}</td>
-                            <td><i class="fa fa-globe"></i>&nbsp; Post:{{$job->created_at->diffForHumans()}}</td>
-                            <td>
-                                <a href="{{route('jobs.show',[$job->id,$job->slug])}}" class="btn btn-success
-                            btn-sm">Apply</a>
-                            </td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
+                </form>--}}
+
+                <div class="bg-lights">
+                    <div class="container">
+                        <div class="row" id="app">
+                            <div class="col-md-12 mb-12 mb-md-0" data-aos="fade-up" data-aos-delay="100">
+                                <div class="rounded border jobs-wrap">
+
+                                    @foreach($allJobs as $job)
+                                        <a href="{{route('jobs.show',[$job->id,$job->slug])}}"
+                                           class="job-item d-block d-md-flex align-items-center  border-bottom fulltime">
+                                            <div class="company-logo blank-logo text-center text-md-left pl-3">
+                                                <img src="{{$job->company->logo== '' ? asset('images/uploads/logo.jpg') :asset
+                                ('images/uploads/'.$job->company->logo)}}" alt="Image" class="img-fluid mx-auto">
+                                            </div>
+                                            <div class="job-details h-100">
+                                                <div class="p-3 align-self-center">
+                                                    <h3>{{$job->position}}</h3>
+                                                    <div class="d-block d-lg-flex">
+                                                        <div class="mr-3"><span class="icon-suitcase mr-1"></span>
+                                                            {{$job->company->cname}}</div>
+                                                        <div class="mr-3"><span class="icon-room mr-1"></span>
+                                                            {{Str::limit($job->address,20)}}
+                                                        </div>
+                                                        <div class="mr-3"><span class="icon-money mr-1"></span>
+                                                            ${{$job->salary}}
+                                                        </div>
+                                                        <div><span
+                                                                class="icon-transgender mr-1"></span> {{$job->gender}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="job-category align-self-center">
+                                                <div class="p-3">
+                                                    @if($job->job_type === 'Full Time')
+                                                        <span
+                                                            class="text-info p-2 rounded border border-info">Full Time</span>
+                                                    @elseif($job->job_type === 'Part Time')
+                                                        <span class="text-warning p-2 rounded border border-warning">Part Time</span>
+                                                    @else
+                                                        <span class="text-success p-2 rounded border border-success">Casual</span>
+
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </a>
+                                    @endforeach
+
+                                </div>
+                            </div>
+                            {{--FEATURE JOBS--}}
+                            {{--    <div class="col-md-4 block-16" data-aos="fade-up" data-aos-delay="200">
+                                    <div class="d-flex mb-0">
+                                        <h2 class="mb-5 h3 mb-0">Featured Jobs</h2>
+                                        <div class="ml-auto mt-1"><a href="#" class="owl-custom-prev">Prev</a> / <a href="#"
+                                                                                                                    class="owl-custom-next">Next</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="nonloop-block-16 owl-carousel">
+
+                                        <div class="border rounded p-4 bg-white">
+                                            <h2 class="h5">Restaurant Crew</h2>
+                                            <p><span class="border border-warning rounded p-1 px-2 text-warning">Freelance</span></p>
+                                            <p>
+                                                <span class="d-block"><span class="icon-suitcase"></span> Resto Bar</span>
+                                                <span class="d-block"><span class="icon-room"></span> Florida</span>
+                                                <span class="d-block"><span class="icon-money mr-1"></span> $55000 &mdash; 70000</span>
+                                            </p>
+                                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi neque fugit
+                                                tempora, numquam voluptate veritatis odit id, iste eum culpa alias, ut officiis omnis
+                                                itaque ad, rem sunt doloremque molestias.</p>
+                                        </div>
+
+                                        <div class="border rounded p-4 bg-white">
+                                            <h2 class="h5">Javascript Fullstack Developer</h2>
+                                            <p><span class="border border-warning rounded p-1 px-2 text-warning">Freelance</span></p>
+                                            <p>
+                                                <span class="d-block"><span class="icon-suitcase"></span> Resto Bar</span>
+                                                <span class="d-block"><span class="icon-room"></span> Florida</span>
+                                                <span class="d-block"><span class="icon-money mr-1"></span> $55000 &mdash; 70000</span>
+                                            </p>
+                                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus accusamus
+                                                necessitatibus praesentium voluptate natus excepturi rerum, autem. Magnam laboriosam,
+                                                quam sapiente laudantium iure sit ea! Tenetur, quasi, praesentium. Architecto, eum.</p>
+                                        </div>
+
+                                        <div class="border rounded p-4 bg-white">
+                                            <h2 class="h5">Assistant Brooker, Real Estate</h2>
+                                            <p><span class="border border-warning rounded p-1 px-2 text-warning">Freelance</span></p>
+                                            <p>
+                                                <span class="d-block"><span class="icon-suitcase"></span> Resto Bar</span>
+                                                <span class="d-block"><span class="icon-room"></span> Florida</span>
+                                                <span class="d-block"><span class="icon-money mr-1"></span> $55000 &mdash; 70000</span>
+                                            </p>
+                                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus esse,
+                                                quam consectetur ipsum quibusdam ullam ab nesciunt, doloribus voluptatum neque iure
+                                                perspiciatis vel vero illo consequatur facilis, fuga nobis corporis.</p>
+                                        </div>
+
+                                        <div class="border rounded p-4 bg-white">
+                                            <h2 class="h5">Telecommunication Manager</h2>
+                                            <p><span class="border border-warning rounded p-1 px-2 text-warning">Freelance</span></p>
+                                            <p>
+                                                <span class="d-block"><span class="icon-suitcase"></span> Resto Bar</span>
+                                                <span class="d-block"><span class="icon-room"></span> Florida</span>
+                                                <span class="d-block"><span class="icon-money mr-1"></span> $55000 &mdash; 70000</span>
+                                            </p>
+                                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid at ipsum
+                                                commodi hic, cum esse asperiores libero molestiae, perferendis consectetur assumenda
+                                                iusto, dolorem nemo maiores magnam illo laborum sit, dicta.</p>
+                                        </div>
+
+                                    </div>
+
+                                </div> --}}
+                        </div>
+                    </div>
+                </div>
                 {{$allJobs->appends(\Illuminate\Support\Facades\Input::except('page'))->links()}}
             </div>
         </div>

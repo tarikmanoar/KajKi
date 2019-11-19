@@ -8,8 +8,8 @@
         </div>
     </div>
     <div class="site-section bg-light">
-        <div class="container">
-            <div class="row">
+        <div class="container" id="app">
+            <div class="row" >
                 <div class="col-md-12 col-lg-8 mb-5">
                     <div class="p-5 bg-white">
                         <div class="mb-4 mb-md-5 mr-5">
@@ -44,19 +44,19 @@
                                 class="img-fluid
                         rounded">
                         </div>
-                        {{$job->description}}
+                        <div class="p-4 mb-8 bg-white">
+                            <h3 class="h5 text-black mb-3">Job Description</h3>
+                            <p>{{$job->description}}</p>
+                        </div>
+                        <div class="p-4 mb-8 bg-white">
+                            <h3 class="h5 text-black mb-3">Roles & Responsibilities</h3>
+                            <p>{{$job->roles}}</p>
+                        </div>
 
-                        {{--                    <p class="mt-5"><a href="#" class="btn btn-primary  py-2 px-4">Apply Job</a></p>--}}
+                        <p class="mt-5"><a href="{{route('jobs.apply',$job->id)}}" class="btn btn-primary  py-2
+                        px-4">Apply Job</a></p>
                         <br>
-                        @if(Auth::check() && Auth::user()->role=='seeker')
-                            @if(!$job->checkApplication())
-                                <apply-component jobid={{$job->id}} ></apply-component>
-                            @endif
-                            <br>
-                            <favourites-component
-                                jobid={{$job->id}} :favourite={{$job->checkSaved()? 'true': 'false'}}>
-                            </favourites-component>
-                        @endif
+
                     </div>
                 </div>
 
@@ -83,15 +83,8 @@
                         <p><span class="font-weight-bold text-uppercase">Last Date:</span>
                             {{date('F d Y',strtotime($job->last_date))}}</p>
                         <br>
-                        @if(Auth::check() && Auth::user()->role=='seeker')
-                            @if(!$job->checkApplication())
-                                <apply-component jobid={{$job->id}} ></apply-component>
-                            @endif
-                            <br>
-                            <favourites-component
-                                jobid={{$job->id}} :favourite={{$job->checkSaved()? 'true': 'false'}}>
-                            </favourites-component>
-                        @endif
+                        <p class="mt-5 "><a href="{{route('company.index',[$job->company->id,$job->company->slug])
+                            }}" class="btn btn-primary  py-2 px-4">Visit Company Page</a></p>
                     </div>
                 </div>
             </div>

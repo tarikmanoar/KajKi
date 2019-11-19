@@ -85,7 +85,7 @@
             <div class="media-with-text">
                 <div class="img-border-sm mb-4">
                     <a href="#" class="image-play">
-                        <img src="images/{{asset('external/img_3.jpg')}}" alt="" class="img-fluid">
+                        <img src="{{asset('external/images/img_3.jpg')}}" alt="" class="img-fluid">
                     </a>
                 </div>
                 <h2 class="heading mb-0 h5"><a href="#">Jobs are made easy</a></h2>
