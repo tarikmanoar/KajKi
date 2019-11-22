@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="416ee341-7c52-4323-b6a7-10457ddaee1a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Kajki/JobController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Kajki/JobController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/jobs/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/jobs/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/main.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/partials/category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/category.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/partials/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/footer.blade.php" afterDir="false" />
@@ -201,7 +203,7 @@
       <workItem from="1574165220715" duration="102000" />
       <workItem from="1574165380784" duration="12945000" />
       <workItem from="1574319521459" duration="17000" />
-      <workItem from="1574434761116" duration="1537000" />
+      <workItem from="1574434761116" duration="4352000" />
     </task>
     <servers />
   </component>
@@ -229,7 +231,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/jobs/show.blade.php</url>
-          <line>102</line>
+          <line>106</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

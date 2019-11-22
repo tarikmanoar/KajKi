@@ -4,7 +4,7 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+// require('./bootstrap');
 
 window.Vue = require('vue');
 
@@ -31,5 +31,5 @@ Vue.component('search-component', require('./components/SearchComponent.vue').de
  */
 
 const app = new Vue({
-    el: '#app',
+    el: '#main',
 });

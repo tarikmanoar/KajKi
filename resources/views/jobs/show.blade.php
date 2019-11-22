@@ -1,14 +1,14 @@
 @extends('layouts.main')
 @section('content')
-    <div class="unit-5 overlay" style="background: url({{$job->company->cover_photo == '' ? asset
-('external/images/hero_2.jpg') : asset('images/uploads/'.$job->company->cover_photo)}}) no-repeat #22aadd;">
+    <div class="unit-5 overlay" style="background: url({{$job->company->cover_photo === '' ? asset
+    ('external/images/hero_2.jpg') : asset('images/uploads/'.$job->company->cover_photo)}}) no-repeat #22aadd;">
         <div class="container text-center">
             <h2 class="mb-0">{{$job->title}}</h2>
             <p class="mb-0 unit-6"><a href="{{__('/')}}">Home</a> <span class="sep">></span> <span>Job Item</span></p>
         </div>
     </div>
     <div class="site-section bg-light">
-        <div class="container" id="app">
+        <div class="container" id="main">
             <div class="row" >
                 <div class="col-md-12 col-lg-8 mb-5">
                     <div class="p-5 bg-white">
@@ -52,10 +52,14 @@
                             <h3 class="h5 text-black mb-3">Roles & Responsibilities</h3>
                             <p>{{$job->roles}}</p>
                         </div>
-
-                        <p class="mt-5"><a href="{{route('jobs.apply',$job->id)}}" class="btn btn-primary  py-2
-                        px-4">Apply Job</a></p>
                         <br>
+                        @if(Auth::check() && Auth::user()->role=='seeker')
+                            @if(!$job->checkApplication())
+                                <apply-component jobid={{$job->id}} ></apply-component>
+                            @endif
+                            <br>
+                            <favourites-component jobid={{$job->id}} :favourite={{$job->checkSaved()?'true':'false'}}></favourites-component>
+                        @endif
 
                     </div>
                 </div>

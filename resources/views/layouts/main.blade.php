@@ -9,12 +9,11 @@
     @include('../partials.head')
 </head>
 <body>
-<div id="app">
+<div id="main">
     @include('../partials.nav')
     <div style="height: 113px;"></div>
     @yield('content')
     @include('../partials.footer')
-
 
     <script type="text/javascript">
         //Alert Dismiss Function
@@ -22,8 +21,6 @@
             let alert = $(".alert");
             alert.remove();
         }, 5000);
-
-
     </script>
 </div>
 

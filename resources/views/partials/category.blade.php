@@ -12,7 +12,7 @@
                     <a href="#" class="h-100 feature-item">
                         <span class="d-block icon {{$cat->icon}} mb-3 text-primary"></span>
                         <h2>{{$cat->name}}</h2>
-{{--                        <span class="counting">10,391</span>--}}
+{{--                        <span class="counting"></span>--}}
                     </a>
                 </div>
             @endforeach
