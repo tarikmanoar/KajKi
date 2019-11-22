@@ -12,9 +12,6 @@
 <script>
     export default {
         props: ['jobid'],
-        mounted() {
-            console.log('Component mounted.')
-        },
         data() {
             return {
                 'show': true
@@ -23,8 +20,7 @@
         methods: {
             formSubmit(e) {
                 e.preventDefault();
-                axios.POST('/applications/' + this.jobid, {
-
+                axios.post('/applications/' + this.jobid, {
                 }).then((response) => {
                     this.show = false
                 });

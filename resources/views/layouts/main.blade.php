@@ -9,7 +9,7 @@
     @include('../partials.head')
 </head>
 <body>
-<div id="main">
+<div id="app">
     @include('../partials.nav')
     <div style="height: 113px;"></div>
     @yield('content')

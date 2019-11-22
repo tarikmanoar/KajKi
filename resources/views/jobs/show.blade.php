@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="site-section bg-light">
-        <div class="container" id="main">
+        <div class="container" id="app">
             <div class="row" >
                 <div class="col-md-12 col-lg-8 mb-5">
                     <div class="p-5 bg-white">

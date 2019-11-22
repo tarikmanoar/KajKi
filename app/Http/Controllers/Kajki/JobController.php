@@ -29,7 +29,7 @@ class JobController extends Controller
         $jobs      = Job::latest()->limit(10)->where('status', 1)->get();
         $companies = Company::get()->random(8);
         $cats      = Category::all();
-        return view('welcome', compact(['jobs', 'companies','cats']));
+        return view('welcome', compact(['jobs', 'companies', 'cats']));
     }
 
     public function show($id, Job $job)
