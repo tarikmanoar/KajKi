@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\KajKi;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Company;
 use App\Models\Job;
 use Illuminate\Http\Request;
@@ -11,7 +12,15 @@ class JobController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['employer', 'verified'], ['except' => ['index', 'show', 'apply', 'allJobs', 'search']]);
+        $this->middleware(['employer', 'verified'], [
+            'except' => [
+                'index',
+                'show',
+                'apply',
+                'allJobs',
+                'search'
+            ]
+        ]);
 
     }
 
@@ -19,7 +28,8 @@ class JobController extends Controller
     {
         $jobs      = Job::latest()->limit(10)->where('status', 1)->get();
         $companies = Company::get()->random(8);
-        return view('welcome', compact(['jobs', 'companies']));
+        $cats      = Category::all();
+        return view('welcome', compact(['jobs', 'companies','cats']));
     }
 
     public function show($id, Job $job)

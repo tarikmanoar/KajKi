@@ -9,20 +9,23 @@
     @include('../partials.head')
 </head>
 <body>
-@include('../partials.nav')
-<div style="height: 113px;"></div>
-@yield('content')
-@include('../partials.footer')
+<div id="app">
+    @include('../partials.nav')
+    <div style="height: 113px;"></div>
+    @yield('content')
+    @include('../partials.footer')
 
 
-<script type="text/javascript">
-    //Alert Dismiss Function
-    setTimeout(function () {
-        let alert = $(".alert");
-        alert.remove();
-    }, 5000);
+    <script type="text/javascript">
+        //Alert Dismiss Function
+        setTimeout(function () {
+            let alert = $(".alert");
+            alert.remove();
+        }, 5000);
 
 
-</script>
+    </script>
+</div>
+
 </body>
 </html>

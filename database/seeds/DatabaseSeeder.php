@@ -23,14 +23,14 @@ class DatabaseSeeder extends Seeder
         $this->call(CrudSeeder::class);
 
         $categories = [
-            'Accounting / Finanace'       => 'flaticon-calculator',
-            'Automotive Jobs'             => 'flaticon-wrench',
-            'Construction / Facilities'   => 'flaticon-worker',
-            'flaticon-telecommunications' => 'Telecommunications',
-            'flaticon-stethoscope'        => 'Healthcare',
-            'flaticon-computer-graphic'   => 'Design, Art & Multimedia',
-            'Transportation & Logistics'  => 'flaticon-trolley',
-            'Restaurant / Food Service'   => 'flaticon-restaurant'
+            'Accounting / Finanace'      => 'flaticon-calculator',
+            'Automotive Jobs'            => 'flaticon-wrench',
+            'Construction / Facilities'  => 'flaticon-worker',
+            'Telecommunications'         => 'flaticon-telecommunications',
+            'Healthcare'                 => 'flaticon-stethoscope',
+            'Design, Art & Multimedia'   => 'flaticon-computer-graphic',
+            'Transportation & Logistics' => 'flaticon-trolley',
+            'Restaurant / Food Service'  => 'flaticon-restaurant'
         ];
         foreach ($categories as $cat => $icon) {
             Category::create(['name' => $cat, 'slug' => str_slug($cat), 'icon' => $icon]);
