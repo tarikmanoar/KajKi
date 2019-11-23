@@ -23,7 +23,7 @@ Route::get('/jobs/allJobs', 'KajKi\JobController@allJobs')->name('jobs.allJobs')
 
 
 //Category Controller
-Route::get('jobs/category/{id}', 'KajKi\CategoryController@index')->name('jobs.category');
+Route::get('/category/{id}/jobs', 'KajKi\CategoryController@index')->name('jobs.category');
 
 
 //search with veu js
