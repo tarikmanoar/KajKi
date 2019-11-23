@@ -10,11 +10,17 @@ class CompanyController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['employer','verified'], ['except' => ['index', 'show']]);
+        $this->middleware(['employer','verified'], ['except' => ['index', 'show','allCompany']]);
     }
 
     public function index($id, Company $company)
     {
         return view('company.index', compact('company'));
+    }
+
+    public function allCompany()
+    {
+        $companies = Company::all();
+        return view('company.allCompany',compact('companies'));
     }
 }

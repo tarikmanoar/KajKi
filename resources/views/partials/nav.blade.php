@@ -26,6 +26,7 @@
                                             class="icon-menu h3"></span></a></div>
 
                                 <ul class="site-menu js-clone-nav d-none d-lg-block">
+                                    <li><a href="{{route('company.all')}}">All Company</a></li>
                                     @guest
                                         <li><a href="{{route('register')}}">Seeker Register</a></li>
                                         <li><a href="{{route('emp.register')}}">Employer Register</a></li>

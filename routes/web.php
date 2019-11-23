@@ -37,6 +37,7 @@ Route::post('/unsaved/{id}', 'KajKi\FavouriteController@unsavedJob');
 
 //Company Controller
 Route::get('/companies/{id}/{company}', 'KajKi\CompanyController@index')->name('company.index');
+Route::get('/companies', 'KajKi\CompanyController@allCompany')->name('company.all');
 
 //Profile Controller
 Route::get('/user/profile', 'KajKi\ProfileController@index')->name('user.profile');
