@@ -87,8 +87,8 @@
                         <p><span class="font-weight-bold text-uppercase">Last Date:</span>
                             {{date('F d Y',strtotime($job->last_date))}}</p>
                         <br>
-                        <p class="mt-5 "><a href="{{route('company.index',[$job->company->id,$job->company->slug])
-                            }}" class="btn btn-primary  py-2 px-4">Visit Company Page</a></p>
+                        <p class="mt-5 "><a href="{{route('company.index',[$job->company->id,$job->company->slug])}}"
+                                            class="btn btn-primary  py-2 px-4">Visit Company Page</a></p>
                     </div>
                 </div>
             </div>

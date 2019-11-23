@@ -5,12 +5,12 @@
         <div class="row">
             <div class="col-md-12 col-lg-12">
 
-                <h1>Recent Jobs ({{count($allJobs)}})</h1>
-
-             {{--<form action="{{route('jobs.allJobs')}}" method="GET" accept-charset="utf-8"
+                <h1>Recent Jobs ({{count(\App\Models\Job::where('status', 1)->get())}})</h1>
+{{--
+             <form action="{{route('jobs.allJobs')}}" method="GET" accept-charset="utf-8"
                       enctype="multipart/form-data">
                     <div class="form-inline">
-                        <div class="form-group">
+                        <div class="form-group col-lg-3">
                             <label for="keyword" class=" form-control-label">Keyword &nbsp;</label>
                             <input type="text" name="title" id="keyword" class="form-control @error('title')
                                 is-invalid @enderror">
@@ -19,8 +19,8 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
-                        </div>&nbsp;
-                        <div class="form-group">
+                        </div>
+                        <div class="form-group col-lg-3">
                             <label for="category_id" class=" form-control-label">Category &nbsp;</label>
                             <select name="category_id" id="category_id"
                                     class="form-control @error('category_id') is-invalid @enderror">
@@ -34,8 +34,8 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
-                        </div>&nbsp;
-                        <div class="form-group">
+                        </div>
+                        <div class="form-group col-lg-2">
                             <label for="job_type" class=" form-control-label">Job Type &nbsp;</label>
                             <select name="job_type" id="job_type" class="form-control @error('job_type') is-invalid
 @enderror">
@@ -50,17 +50,17 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
-                        </div>&nbsp;
-                        <div class="form-group">
+                        </div>
+                        <div class="form-group col-lg-3">
                             <label for="address" class=" form-control-label">Address &nbsp;</label>
                             <input type="text" name="address" id="address" class="form-control">
-                        </div>&nbsp;&nbsp;&nbsp;
-                        <div class="form-group">
+                        </div>
+                        <div class="form-group col-lg-2">
                             <input type="submit" class="btn btn-success" class="form-control" value="Submit">
                         </div>
                     </div>
                 </form>--}}
-
+            <search-component></search-component>
                 <div class="bg-lights">
                     <div class="container">
                         <div class="row" id="app">
@@ -109,6 +109,9 @@
                                     @endforeach
 
                                 </div>
+                                <span style="display: flex;justify-content: center;" class="mt-3">
+                                    {{$allJobs->appends(\Illuminate\Support\Facades\Input::except('page'))->links()}}
+                                </span>
                             </div>
                             {{--FEATURE JOBS--}}
                             {{--    <div class="col-md-4 block-16" data-aos="fade-up" data-aos-delay="200">
@@ -179,7 +182,6 @@
                         </div>
                     </div>
                 </div>
-                {{$allJobs->appends(\Illuminate\Support\Facades\Input::except('page'))->links()}}
             </div>
         </div>
     </div>

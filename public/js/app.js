@@ -1994,7 +1994,7 @@ __webpack_require__.r(__webpack_exports__);
       this.results = [];
 
       if (this.keyword.length >= 1) {
-        axios.get('jobs/search/', {
+        axios.get('search/', {
           params: {
             keyword: this.keyword
           }
@@ -37490,11 +37490,7 @@ var render = function() {
               return _c("li", { staticClass: "list-group-item" }, [
                 _c(
                   "a",
-                  {
-                    attrs: {
-                      href: "jobs/" + result.id + "/" + result.slug + "/"
-                    }
-                  },
+                  { attrs: { href: result.id + "/" + result.slug + "/" } },
                   [
                     _vm._v(
                       "\n                    " + _vm._s(result.title) + " "

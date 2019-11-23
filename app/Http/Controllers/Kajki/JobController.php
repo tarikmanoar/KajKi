@@ -28,7 +28,7 @@ class JobController extends Controller
     {
         $jobs      = Job::latest()->limit(10)->where('status', 1)->get();
         $companies = Company::get()->random(8);
-        $cats      = Category::all();
+        $cats      = Category::with('jobs')->get();
         return view('welcome', compact(['jobs', 'companies', 'cats']));
     }
 

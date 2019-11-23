@@ -21,6 +21,11 @@ Route::get('/jobs/applications', 'KajKi\JobController@applicant')->name('jobs.ap
 
 Route::get('/jobs/allJobs', 'KajKi\JobController@allJobs')->name('jobs.allJobs');
 
+
+//Category Controller
+Route::get('jobs/category/{id}', 'KajKi\CategoryController@index')->name('jobs.category');
+
+
 //search with veu js
 Route::get('/jobs/search', 'KajKi\JobController@search')->name('jobs.search');
 

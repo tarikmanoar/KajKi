@@ -9,10 +9,10 @@
             <?php $time = 0?>
             @foreach($cats as $cat)
                 <div class="col-sm-6 col-md-4 col-lg-3 mb-3" data-aos="fade-up" data-aos-delay="{{$time+=100}}">
-                    <a href="#" class="h-100 feature-item">
+                    <a href="{{route('jobs.category',$cat->id)}}" class="h-100 feature-item">
                         <span class="d-block icon {{$cat->icon}} mb-3 text-primary"></span>
                         <h2>{{$cat->name}}</h2>
-{{--                        <span class="counting"></span>--}}
+                        <span class="counting">{{$cat->jobs->count()}}</span>
                     </a>
                 </div>
             @endforeach

@@ -5,7 +5,7 @@
         <div class="card-footer" v-if="results.length">
             <ul class="list-group">
                 <li class="list-group-item" v-for="result in results">
-                    <a :href="'jobs/'+ result.id +'/'+ result.slug +'/'">
+                    <a :href="result.id +'/'+ result.slug +'/'">
                         {{result.title}} <br>
                         <small class="badge badge-secondary">{{result.position}}</small>
                     </a>
@@ -27,7 +27,7 @@
             Searchjob() {
                 this.results = [];
                 if (this.keyword.length >= 1) {
-                    axios.get('jobs/search/', {params: {keyword: this.keyword}}).then(
+                    axios.get('search/', {params: {keyword: this.keyword}}).then(
                         response => {
                             this.results = response.data;
                         });
