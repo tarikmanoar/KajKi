@@ -39,25 +39,12 @@
                                                     </div>
                                                 </div>
                                             </div>
-{{--                                            <div class="job-category align-self-center">--}}
-{{--                                                <div class="p-3">--}}
-{{--                                                    @if($job->job_type === 'Full Time')--}}
-{{--                                                        <span--}}
-{{--                                                            class="text-info p-2 rounded border border-info">Full Time</span>--}}
-{{--                                                    @elseif($job->job_type === 'Part Time')--}}
-{{--                                                        <span class="text-warning p-2 rounded border border-warning">Part Time</span>--}}
-{{--                                                    @else--}}
-{{--                                                        <span class="text-success p-2 rounded border border-success">Casual</span>--}}
-
-{{--                                                    @endif--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
                                         </a>
                                     @endforeach
 
                                 </div>
                                 <span style="display: flex;justify-content: center;" class="mt-3">
-{{--                                    {{$allJobs->appends(\Illuminate\Support\Facades\Input::except('page'))->links()}}--}}
+                                    {{$companies->links()}}
                                 </span>
                             </div>
                         </div>

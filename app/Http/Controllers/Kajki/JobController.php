@@ -133,17 +133,31 @@ class JobController extends Controller
 
     public function allJobs(Request $request)
     {
+        //Search From Home Page
+        $search    = $request->get('search');
+        $s_address = $request->get('s_address');
+        if ($search && $s_address) {
+            $allJobs = Job::where('status', 1)
+                ->where('title', 'LIKE', '%' . $search . '%')
+                ->orWhere('job_type', 'LIKE', '%' . $search . '%')
+                ->orWhere('position', 'LIKE', '%' . $search . '%')
+                ->orWhere('address', 'LIKE', '%' . $s_address . '%')
+                ->paginate(10);
+
+            return view('jobs.allJobs', compact('allJobs'));
+        }
+
         $keyword     = $request->get('title');
         $job_type    = $request->get('job_type');
         $category_id = $request->get('category_id');
         $address     = $request->get('address');
         if ($keyword || $job_type || $category_id || $address) {
-            $allJobs = Job::where('status', 1)->where('title', 'LIKE', '%' . $keyword . '%')
-//                ->where('job_type', $job_type)
-//                ->where('category_id', $category_id)
-//                ->where('address','LIKE','%'.$address.'%' )
+            $allJobs = Job::where('status', 1)
+                ->where('title', 'LIKE', '%' . $keyword . '%')
+                ->orWhere('job_type', $job_type)
+                ->orWhere('category_id', $category_id)
+                ->orWhere('address','LIKE','%'.$address.'%' )
                 ->paginate(10);
-//dd($allJobs);
             return view('jobs.allJobs', compact('allJobs'));
         } else {
             $allJobs = Job::where('status', 1)->paginate(10);
@@ -173,8 +187,13 @@ class JobController extends Controller
 //================
     public function search(Request $request)
     {
+
         $keyword = $request->get('keyword');
-        $jobs    = Job::where('title', 'LIKE', '%' . $keyword . '%')->orWhere('position', 'LIKE', '%' . $keyword . '%')->limit(5)->get();
+        $jobs    = Job::where('title', 'LIKE', '%' . $keyword . '%')
+            ->orWhere('position', 'LIKE', '%' . $keyword . '%')
+            ->orWhere('job_type', 'LIKE', '%' . $keyword . '%')
+            ->orWhere('address', 'LIKE', '%' . $keyword . '%')
+            ->limit(5)->get();
         return response()->json($jobs);
     }
 }
