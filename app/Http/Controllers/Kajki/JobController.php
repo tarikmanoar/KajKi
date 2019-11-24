@@ -34,7 +34,37 @@ class JobController extends Controller
 
     public function show($id, Job $job)
     {
-        return view('jobs.show', compact('job'));
+        $data = [];
+        //Jobs Base on Category
+        $jobsByCats = Job::latest()
+            ->where('category_id', $job->category_id)
+            ->where('status', 1)
+            ->whereDate('last_date', '>', date('Y-m-d'))
+            ->where('id', '!=', $job->id)
+            ->limit(3)
+            ->get();
+        array_push($data, $jobsByCats);
+        //Jobs Base on Company
+        $jobsByComps = Job::latest()
+            ->where('company_id', $job->company_id)
+            ->where('status', 1)
+            ->whereDate('last_date', '>', date('Y-m-d'))
+            ->where('id', '!=', $job->id)
+            ->limit(3)
+            ->get();
+        array_push($data, $jobsByComps);
+
+        //Jobs Base on Positions
+        $jobsByPosition = Job::latest()
+            ->where('position', 'LIKE', '%' . $job->position . '%')
+            ->where('status', 1)
+            ->whereDate('last_date', '>', date('Y-m-d'))
+            ->where('id', '!=', $job->id)
+            ->limit(3)
+            ->get();
+        array_push($data, $jobsByPosition);
+//        dd($data);
+        return view('jobs.show', compact('job','jobsByComps','jobsByCats'));
     }
 
     public function create()
@@ -156,7 +186,7 @@ class JobController extends Controller
                 ->where('title', 'LIKE', '%' . $keyword . '%')
                 ->orWhere('job_type', $job_type)
                 ->orWhere('category_id', $category_id)
-                ->orWhere('address','LIKE','%'.$address.'%' )
+                ->orWhere('address', 'LIKE', '%' . $address . '%')
                 ->paginate(10);
             return view('jobs.allJobs', compact('allJobs'));
         } else {

@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="416ee341-7c52-4323-b6a7-10457ddaee1a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Kajki/EmailController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Mail/SendJobMail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/emails/JobMail.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Kajki/JobController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Kajki/JobController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/jobs/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/jobs/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -204,7 +200,7 @@
       <workItem from="1574319521459" duration="17000" />
       <workItem from="1574434761116" duration="5616000" />
       <workItem from="1574513958954" duration="21237000" />
-      <workItem from="1574607279456" duration="4634000" />
+      <workItem from="1574607279456" duration="10473000" />
     </task>
     <servers />
   </component>
@@ -232,7 +228,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/jobs/show.blade.php</url>
-          <line>178</line>
+          <line>188</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

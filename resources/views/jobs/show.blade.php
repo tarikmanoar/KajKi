@@ -104,7 +104,17 @@
                                             class="btn btn-primary  py-2 px-4">Visit Company Page</a></p>
                     </div>
                 </div>
-
+                @foreach($jobsByCats as $jobData)
+                    <div class="card col-lg-3 col-md-12 mr-5">
+                        <div class="card-body">
+                            <p class="badge badge-info">{{$jobData->job_type}}</p>
+                            <h5 class="card-title">{{$jobData->position}}</h5>
+                            <p class="card-text">{{Str::limit($jobData->description,90)}}</p>
+                            <a href="{{route('jobs.show',[$jobData->id,$jobData->slug])}}" class="btn
+                            btn-primary">Apply</a>
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
