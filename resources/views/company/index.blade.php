@@ -26,10 +26,10 @@
                     </div>
                 </div>
                 <h1>Recent Jobs</h1>
+                @if($company->jobs->count() > 0)
                 <table class="table table-bordered table-striped">
                     <tbody>
                     <div class="rounded border jobs-wrap" data-aos="fade-up" data-aos-delay="100">
-
                         @foreach($company->jobs as $job)
                             <a href="{{route('jobs.show',[$job->id,$job->slug])}}"
                                class="job-item d-block d-md-flex align-items-center  border-bottom fulltime">
@@ -74,6 +74,9 @@
                     </div>
                     </tbody>
                 </table>
+                @else
+                    <h1 class="text-uppercase text-center display-2 text-danger bg-info">NO JOBS!</h1>
+                @endif
             </div>
         </div>
     </div>

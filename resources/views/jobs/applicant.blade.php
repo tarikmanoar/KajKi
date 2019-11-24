@@ -1,9 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
+                @if($applicants->count() > 0)
                 <div class="card">
                     @foreach($applicants as $applicant)
                         <div class="card-header">
@@ -47,6 +48,9 @@
                         </div>
                     @endforeach
                 </div>
+                @else
+                <h1 class="text-uppercase text-center display-2 text-danger bg-info">NO Applicants!</h1>
+                @endif
             </div>
         </div>
     </div>

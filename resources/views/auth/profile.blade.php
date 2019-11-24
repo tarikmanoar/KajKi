@@ -1,8 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @section('content')
     <div class="container">
-        <div class="row">
+        <div class="row mb-4">
             @if(auth()->user()->role=='seeker')
 
                 <div class="col-md-2">
@@ -96,9 +96,8 @@
                         </form>
                     </div>
                 </div>
-        </div>
-        @else
-            <div class="row">
+            @else
+
                 <div class="col-md-12 mb-3">
                     @if(!empty(auth()->user()->company->cover_photo))
                         <img src="{{asset('images/uploads/'.auth()->user()->company->cover_photo)}}" alt="Sorry"
@@ -224,7 +223,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        @endif
+            @endif
+        </div>
     </div>
 @endsection

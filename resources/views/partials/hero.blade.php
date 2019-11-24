@@ -8,7 +8,6 @@
             <div class="col-12" data-aos="fade">
                 <h1>Find Job</h1>
                 <form action="{{route('jobs.allJobs')}}">
-{{--                    @csrf--}}
                     <div class="row mb-3">
                         <div class="col-md-9">
                             <div class="row">

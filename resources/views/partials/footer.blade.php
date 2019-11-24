@@ -15,21 +15,15 @@
                     <div class="col-md-6">
                         <h3 class="footer-heading mb-4 text-white">Quick Menu</h3>
                         <ul class="list-unstyled">
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Services</a></li>
-                            <li><a href="#">Approach</a></li>
-                            <li><a href="#">Sustainability</a></li>
-                            <li><a href="#">News</a></li>
-                            <li><a href="#">Careers</a></li>
+                            <li><a href="{{route('company.all')}}">All Company</a></li>
                         </ul>
                     </div>
                     <div class="col-md-6">
                         <h3 class="footer-heading mb-4 text-white">Categories</h3>
                         <ul class="list-unstyled">
-                            <li><a href="#">Full Time</a></li>
-                            <li><a href="#">Freelance</a></li>
-                            <li><a href="#">Temporary</a></li>
-                            <li><a href="#">Internship</a></li>
+                            @foreach(\App\Models\Category::latest('id')->limit(6)->get() as $cat)
+                            <li><a href="{{route('jobs.category',$cat->id)}}">{{$cat->name}}</a></li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -40,10 +34,15 @@
                 <div class="col-md-12"><h3 class="footer-heading mb-4 text-white">Social Icons</h3></div>
                 <div class="col-md-12">
                     <p>
-                        <a href="#" class="pb-2 pr-2 pl-0"><span class="icon-facebook"></span></a>
-                        <a href="#" class="p-2"><span class="icon-twitter"></span></a>
-                        <a href="#" class="p-2"><span class="icon-instagram"></span></a>
-                        <a href="#" class="p-2"><span class="icon-vimeo"></span></a>
+                        <a href="http://www.facebook.com/tarikmanoar" class="pb-2 pr-2 pl-0">
+                            <i class="icon-facebook-f"></i>
+                        </a>
+                        <a href="http://www.twitter.com/tarikmanoar" class="p-2"><span
+                                class="icon-twitter-square"></span></a>
+                        <a href="http://www.youtube.com/" class="p-2"><span
+                                class="icon-youtube-play"></span></a>
+                        <a href="http://www.vimeo.com/" class="p-2"><span
+                                class="icon-vimeo-square"></span></a>
 
                     </p>
                 </div>

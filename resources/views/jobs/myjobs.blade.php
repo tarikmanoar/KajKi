@@ -4,6 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
+                @if($jobs->count() > 0)
                 <div class="card">
                     <div class="card-header bg-warning text-dark"><h1>Active Jobs</h1></div>
 
@@ -43,6 +44,9 @@
 
                     </div>
                 </div>
+                @else
+                    <h1 class="text-uppercase text-center display-2 text-warning bg-info font-weight-bold">NO JOBS!</h1>
+                @endif
             </div>
         </div>
     </div>
