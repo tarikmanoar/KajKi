@@ -9,9 +9,14 @@
     </div>
     <div class="site-section bg-light">
         <div class="container" id="app">
-            <div class="row" >
+            <div class="row">
                 <div class="col-md-12 col-lg-8 mb-5">
                     <div class="p-5 bg-white">
+                        @if(session()->has('message'))
+                            <div class="alert alert-{{session('type')}}">
+                                {{session('message')}}
+                            </div>
+                        @endif
                         <div class="mb-4 mb-md-5 mr-5">
                             <div class="job-post-item-header d-flex align-items-center">
                                 <h2 class="mr-3 text-black h4">{{$job->position}}</h2>
@@ -45,7 +50,15 @@
                         rounded">
                         </div>
                         <div class="p-4 mb-8 bg-white">
-                            <h3 class="h5 text-black mb-3">Job Description</h3>
+                            <h3 class="h5 text-black mb-3">
+                                Job Description
+                                @if(auth()->check())
+                                <a href="" data-toggle="modal" data-target="#emailModal">
+                                    <span class="icon-envelope-open-o mr-1"
+                                          style="float: right;font-size: 28px;"></span>
+                                </a>
+                                @endif
+                            </h3>
                             <p>{{$job->description}}</p>
                         </div>
                         <div class="p-4 mb-8 bg-white">
@@ -58,9 +71,9 @@
                                 <apply-component jobid={{$job->id}} ></apply-component>
                             @endif
                             <br>
-                            <favourites-component jobid={{$job->id}} :favourite={{$job->checkSaved()?'true':'false'}}></favourites-component>
+                            <favourites-component
+                                jobid={{$job->id}} :favourite={{$job->checkSaved()?'true':'false'}}></favourites-component>
                         @endif
-
                     </div>
                 </div>
 
@@ -91,6 +104,65 @@
                                             class="btn btn-primary  py-2 px-4">Visit Company Page</a></p>
                     </div>
                 </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="emailModal" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Share job with your friends!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="{{route('jobs.mail')}}" method="post">
+                    @csrf
+                    <div class="modal-body">
+                        <input type="hidden" name="job_id" value="{{$job->id}}">
+                        <input type="hidden" name="job_slug" value="{{$job->slug}}">
+                        <div class="form-group row">
+                            <label for="friend_name" class="col-lg-3 col-form-label text-md-right">
+                                {{ __('Friend Name:')}}
+                            </label>
+                            <div class="col-lg-9">
+                                <input id="friend_name" type="text" name="friend_name"
+                                       class="form-control @error('friend_name') is-invalid @enderror"
+                                       value="{{ old('friend_name') }}" autocomplete="off">
+
+                                @error('friend_name')
+                                <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="friend_email" class="col-lg-3 col-form-label text-md-right">
+                                {{ __('Friend Email:')}}
+                            </label>
+                            <div class="col-lg-9">
+                                <input id="friend_email" type="email" name="friend_email"
+                                       class="form-control @error('friend_email') is-invalid @enderror"
+                                       value="{{ old('friend_email') }}" autocomplete="off">
+
+                                @error('friend_email')
+                                <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Email This Job</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

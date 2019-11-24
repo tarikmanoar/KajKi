@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="416ee341-7c52-4323-b6a7-10457ddaee1a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Kajki/EmailController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Mail/SendJobMail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/emails/JobMail.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/profile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/company/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/company/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/jobs/applicant.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/jobs/applicant.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/jobs/myjobs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/jobs/myjobs.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/hero.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/hero.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/jobs/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/jobs/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -134,7 +133,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="add_unversioned_files" value="$PROJECT_DIR$/storage/logs/laravel-2019-11-13.log" />
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/storage/logs/laravel-2019-11-13.log&#10;G:/WEB/Laragon-Server/laragon/www/KajKi/.env" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Blade" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/partials" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -204,7 +203,8 @@
       <workItem from="1574165380784" duration="12945000" />
       <workItem from="1574319521459" duration="17000" />
       <workItem from="1574434761116" duration="5616000" />
-      <workItem from="1574513958954" duration="19212000" />
+      <workItem from="1574513958954" duration="21237000" />
+      <workItem from="1574607279456" duration="4634000" />
     </task>
     <servers />
   </component>
@@ -232,7 +232,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/jobs/show.blade.php</url>
-          <line>106</line>
+          <line>178</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

@@ -29,6 +29,10 @@ Route::get('/category/{id}/jobs', 'KajKi\CategoryController@index')->name('jobs.
 //search with veu js
 Route::get('/jobs/search', 'KajKi\JobController@search')->name('jobs.search');
 
+
+//Email Job to Friend!!
+Route::post('/mail/jobs', 'KajKi\EmailController@index')->name('jobs.mail');
+
 //Save & Unsaved Jobs Controller
 
 Route::post('/save/{id}', 'KajKi\FavouriteController@saveJob');
