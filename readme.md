@@ -71,12 +71,15 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 ## Install Locally
 <ol>
-    <li>Download Or Clone Project</li>
+    <li>Clone GitHub repo for this project locally <code>git clone https://github.com/tarikmanoar/KajKi</code> </li>
     <li>Extract project in local server</li>
+    <li>Install Composer Dependencies <code><b>composer install</b></code></li>
+    <li>Install NPM Dependencies <code><b>npm install</b></code></li>
     <li>Run command promote and rum <code><b> copy .env.example .env</b></code></li>
     <li>Open <code><b>.env</b></code> change database name and username password</li>
     <li>Generate key <code><b> php artisan key:generate</b></code></li>
     <li>Migrate tables <code><b>php artisan migrate</b></code></li>
+    <li>[Optional]: Seed the database <code><b>php artisan db:seed</b></code></li>
     <li>Run your server <code><b>php artisan serve</b></code> </li>
 </ol>
 
