@@ -9,6 +9,7 @@ use App\Models\Profile;
 use App\User;
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
 
 /*
@@ -37,11 +38,11 @@ $factory->define(Profile::class, function (Faker $faker) {
         'user_id'      => User::all()->random()->id,
         'address'      => $faker->address,
         'gender'       => $faker->randomElement(['Male', 'Female']),
-        'dob'          => $faker->date('Y-m-d'),
+        'dob'          => Carbon::parse($faker->dateTimeBetween('-25 years', '-15 years'))->format('Y-m-d'),
         'experience'   => 'Good',
         'phone_number' => $faker->unique()->phoneNumber,
-        'bio'          => $faker->sentence(3),
-        'cover_latter' => $faker->sentence(3),
+        'bio'          => $faker->realText(80),
+        'cover_latter' => $faker->realText(80),
         'resume'       => 'Eel4a.pdf',
         'avatar'       => $faker->randomElement(['bag.png', 'man.jpg']),
     ];
@@ -66,7 +67,7 @@ $factory->define(Company::class, function (Faker $faker) {
             '"We Power Transactions That Drive Commerce"',
             '"It Does Exactly What It Says on the Tin."'
         ]),
-        'description' => $faker->paragraph(rand(2, 20))
+        'description' => $faker->realText(200,5)
     ];
 });
 
@@ -75,11 +76,11 @@ $factory->define(Job::class, function (Faker $faker) {
         'user_id'           => User::all()->random()->id,
         'company_id'        => Company::all()->random()->id,
         'category_id'       => Category::all()->random()->id,
-        'title'             => $name = $faker->text,
+        'title'             => $name = $faker->realText(55),
         'slug'              => Str::slug($name),
-        'description'       => $faker->paragraph(rand(2, 20)),
+        'description'       => $faker->realText(200,5),
         'position'          => $faker->jobTitle,
-        'roles'             => $faker->text,
+        'roles'             => $faker->realText,
         'address'           => $faker->address,
         'job_type'          => $faker->randomElement(['Full Time', 'Part Time', 'Casual']),
         'status'            => rand(0, 1),
